@@ -61,12 +61,19 @@ ul{margin:0;padding:0;list-style:none}
 .btn--white-ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
 .btn--upper{text-transform:uppercase;letter-spacing:.02em}
 
-/* ===== CTA beam (verde WhatsApp + luz girando na borda) ===== */
-.cta-btn{position:relative;display:inline-flex;overflow:hidden;border-radius:999px;padding:2px;
-  line-height:1;text-decoration:none;isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
+/* ===== CTA beam (verde WhatsApp + luz girando na borda) =====
+   técnica de máscara (border-beam) — funciona no iOS Safari, sem overflow:hidden */
+@property --cta-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.cta-btn{position:relative;display:inline-flex;border-radius:999px;line-height:1;text-decoration:none;
+  isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.38)}
-.cta-btn__beam{position:absolute;inset:-150%;z-index:0;pointer-events:none;
-  background:conic-gradient(from 0deg,transparent 0 300deg,#fff 350deg,transparent 360deg);
+.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:3px;
+  background:conic-gradient(from var(--cta-a,0deg),
+    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 200deg,
+    rgba(255,255,255,.95) 300deg,#fff 330deg,rgba(255,255,255,0) 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+          mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
   animation:cta-spin 3s linear infinite}
 .cta-btn__inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
   background:var(--wa);color:#fff;font-weight:700;font-size:.98rem;white-space:nowrap;
@@ -74,7 +81,7 @@ ul{margin:0;padding:0;list-style:none}
 .cta-btn:hover .cta-btn__inner{background:var(--wa-600)}
 .cta-btn svg{width:1.15em;height:1.15em;flex:none}
 .cta-btn--sm .cta-btn__inner{padding:.62em 1.25em;font-size:.92rem}
-@keyframes cta-spin{to{transform:rotate(360deg)}}
+@keyframes cta-spin{to{--cta-a:360deg}}
 
 /* CTA centralizado por seção */
 .sec-cta{text-align:center;margin-top:clamp(36px,5vw,52px)}
@@ -106,7 +113,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero__lead{color:rgba(255,255,255,.92);font-size:1.02rem;max-width:540px;margin-bottom:2rem}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px}
 .hero__badge{position:absolute;z-index:3;top:clamp(22px,5vw,52px);right:clamp(20px,7vw,110px);width:clamp(86px,11vw,128px);
-  filter:drop-shadow(0 10px 22px rgba(0,0,0,.4));animation:float 5s ease-in-out infinite}
+  height:auto;aspect-ratio:391/381;filter:drop-shadow(0 10px 22px rgba(0,0,0,.4));animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 
 /* ===== Cabeçalho de seção ===== */
