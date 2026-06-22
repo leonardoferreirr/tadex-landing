@@ -112,7 +112,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero__highlights{color:var(--orange);font-weight:700;font-size:clamp(1rem,2vw,1.18rem);letter-spacing:-.01em;margin-bottom:1.1rem}
 .hero__lead{color:rgba(255,255,255,.92);font-size:1.02rem;max-width:540px;margin-bottom:2rem}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px}
-.hero__badge{position:absolute;z-index:3;top:clamp(22px,5vw,52px);right:clamp(20px,7vw,110px);width:clamp(86px,11vw,128px);
+.hero__badge{position:absolute;z-index:3;top:clamp(40px,6vw,68px);right:clamp(20px,7vw,110px);width:clamp(86px,11vw,128px);
   height:auto;aspect-ratio:256/249;filter:drop-shadow(0 10px 22px rgba(0,0,0,.4));animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 
@@ -218,7 +218,7 @@ ul{margin:0;padding:0;list-style:none}
   .split--rev .split__media{order:-1}
   .hero__bg{background-image:url(assets/hero-truck-mobile.webp);background-position:center right -40px}
   .hero__bg::after{background:linear-gradient(180deg,rgba(8,16,24,.55) 0%,rgba(8,16,24,.82) 70%,rgba(8,16,24,.92) 100%)}
-  .hero__badge{top:14px;right:16px}
+  .hero__badge{top:46px;right:16px}
 
   .nav.open{display:flex;position:fixed;inset:78px 0 auto 0;flex-direction:column;gap:0;
     background:#fff;padding:8px 20px 20px;box-shadow:var(--shadow-md);border-bottom:1px solid var(--gray-300)}
