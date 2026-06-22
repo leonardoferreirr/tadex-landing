@@ -183,12 +183,12 @@ ul{margin:0;padding:0;list-style:none}
   display:grid;place-items:center;color:#cdd4e0;transition:.25s}
 .footer__social a:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-3px)}
 .footer__social svg{width:20px;height:20px}
-.footer h4{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:18px}
+.footer h3{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:18px}
 .footer__col a{display:block;color:var(--foot-text);margin-bottom:12px;font-size:.95rem;transition:.2s}
 .footer__col a:hover{color:#fff;padding-left:3px}
 .footer__contact li{display:flex;align-items:center;gap:.6rem;color:var(--foot-text);margin-bottom:12px;font-size:.95rem}
 .footer__contact svg{width:18px;height:18px;color:var(--orange);flex:none}
-.footer__bar{background:var(--orange);color:#fff;text-align:center;font-size:.82rem;padding:14px 16px;font-weight:400}
+.footer__bar{background:#c43d00;color:#fff;text-align:center;font-size:.82rem;padding:14px 16px;font-weight:400}
 
 /* ===== WhatsApp float ===== */
 .wa{position:fixed;right:22px;bottom:22px;z-index:70;width:58px;height:58px;border-radius:50%;
@@ -216,7 +216,7 @@ ul{margin:0;padding:0;list-style:none}
   .header__actions{gap:0}
   .split{grid-template-columns:1fr;gap:30px}
   .split--rev .split__media{order:-1}
-  .hero__bg{background-position:center right -40px}
+  .hero__bg{background-image:url(assets/hero-truck-mobile.webp);background-position:center right -40px}
   .hero__bg::after{background:linear-gradient(180deg,rgba(8,16,24,.55) 0%,rgba(8,16,24,.82) 70%,rgba(8,16,24,.92) 100%)}
   .hero__badge{top:14px;right:16px}
 
