@@ -14,6 +14,7 @@
   --hero:#08111d;         /* fundo do hero */
   --cream:#faf1ec;        /* seções alternadas */
   --wa:#37b34a;           /* verde WhatsApp */
+  --wa-600:#2e9a3f;       /* hover verde */
   --white:#fff;
   --foot-text:#9aa4b6;
   --gray-300:#E4E7EC;
@@ -59,6 +60,25 @@ ul{margin:0;padding:0;list-style:none}
 .btn--white-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
 .btn--white-ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
 .btn--upper{text-transform:uppercase;letter-spacing:.02em}
+
+/* ===== CTA beam (verde WhatsApp + luz girando na borda) ===== */
+.cta-btn{position:relative;display:inline-flex;overflow:hidden;border-radius:999px;padding:2px;
+  line-height:1;text-decoration:none;isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.38)}
+.cta-btn__beam{position:absolute;inset:-150%;z-index:0;pointer-events:none;
+  background:conic-gradient(from 0deg,transparent 0 300deg,#fff 350deg,transparent 360deg);
+  animation:cta-spin 3s linear infinite}
+.cta-btn__inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
+  background:var(--wa);color:#fff;font-weight:700;font-size:.98rem;white-space:nowrap;
+  border-radius:999px;padding:.9em 1.7em;transition:background .25s}
+.cta-btn:hover .cta-btn__inner{background:var(--wa-600)}
+.cta-btn svg{width:1.15em;height:1.15em;flex:none}
+.cta-btn--sm .cta-btn__inner{padding:.62em 1.25em;font-size:.92rem}
+@keyframes cta-spin{to{transform:rotate(360deg)}}
+
+/* CTA centralizado por seção */
+.sec-cta{text-align:center;margin-top:clamp(36px,5vw,52px)}
+.sec-cta .cta-btn{justify-content:center}
 
 /* ===== Header ===== */
 .header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(10px);
@@ -184,7 +204,7 @@ ul{margin:0;padding:0;list-style:none}
   .footer__top{grid-template-columns:1fr 1fr;gap:34px}
 }
 @media (max-width:820px){
-  .nav,.header__actions .btn{display:none}
+  .nav,.header__actions .cta-btn{display:none}
   .nav-toggle{display:inline-flex}
   .header__actions{gap:0}
   .split{grid-template-columns:1fr;gap:30px}
@@ -197,10 +217,9 @@ ul{margin:0;padding:0;list-style:none}
     background:#fff;padding:8px 20px 20px;box-shadow:var(--shadow-md);border-bottom:1px solid var(--gray-300)}
   .nav.open a{padding:14px 0;border-bottom:1px solid var(--gray-300);width:100%}
   .nav.open .nav__cta{display:flex;gap:12px;margin-top:16px;border:0;width:100%}
-  .nav.open .nav__cta .btn{display:inline-flex;flex:1 1 0;justify-content:center;padding-block:.95em}
-  .nav.open .nav__cta .btn--navy{color:#fff}
-  .nav.open .nav__cta .btn--primary{color:#fff}
-  .nav__cta .btn::after{display:none}
+  .nav.open .nav__cta .cta-btn{display:inline-flex;flex:1 1 0;justify-content:center}
+  .nav.open .nav__cta .cta-btn__inner{width:100%;padding-block:.95em}
+  .nav__cta .cta-btn::after{display:none}
 }
 @media (min-width:821px){.nav__cta{display:none}}
 @media (max-width:540px){
