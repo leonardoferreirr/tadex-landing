@@ -62,26 +62,29 @@ ul{margin:0;padding:0;list-style:none}
 .btn--upper{text-transform:uppercase;letter-spacing:.02em}
 
 /* ===== CTA beam (verde WhatsApp + luz girando na borda) =====
-   técnica de máscara (border-beam) — funciona no iOS Safari, sem overflow:hidden */
-@property --cta-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+   luz = camada conic girada por transform (rotate) + máscara em anel.
+   Não depende de @property interpolar ângulo, então roda em todo navegador. */
 .cta-btn{position:relative;display:inline-flex;border-radius:999px;line-height:1;text-decoration:none;
   isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.38)}
-.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:3px;
-  background:conic-gradient(from var(--cta-a,0deg),
-    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 200deg,
-    rgba(255,255,255,.95) 300deg,#fff 330deg,rgba(255,255,255,0) 360deg);
+.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:2.5px;
+  overflow:hidden;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
           mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  animation:cta-spin 3s linear infinite}
+  -webkit-mask-composite:xor;mask-composite:exclude}
+.cta-btn__beam::before{content:"";position:absolute;left:50%;top:50%;width:175%;aspect-ratio:1;
+  transform:translate(-50%,-50%);transform-origin:center;
+  background:conic-gradient(from 0deg,
+    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 230deg,
+    rgba(255,255,255,.55) 285deg,#fff 320deg,rgba(255,255,255,.55) 350deg,rgba(255,255,255,0) 360deg);
+  animation:cta-spin 2.6s linear infinite}
 .cta-btn__inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
   background:var(--wa);color:#fff;font-weight:700;font-size:.98rem;white-space:nowrap;
   border-radius:999px;padding:.9em 1.7em;transition:background .25s}
 .cta-btn:hover .cta-btn__inner{background:var(--wa-600)}
 .cta-btn svg{width:1.15em;height:1.15em;flex:none}
 .cta-btn--sm .cta-btn__inner{padding:.62em 1.25em;font-size:.92rem}
-@keyframes cta-spin{to{--cta-a:360deg}}
+@keyframes cta-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 
 /* CTA centralizado por seção */
 .sec-cta{text-align:center;margin-top:clamp(36px,5vw,52px)}
@@ -210,12 +213,24 @@ ul{margin:0;padding:0;list-style:none}
 .svc-block{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r);padding:28px 26px;
   transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
 .svc-block:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}
-.svc-block h3{font-weight:700;color:var(--navy);font-size:1.2rem;margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem;line-height:1.25}
-.svc-emoji{font-size:1.3rem;flex:none}
+.svc-block h3{font-weight:700;color:var(--navy);font-size:1.2rem;margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem;line-height:1.25}
+.svc-block h3 svg{width:1.55rem;height:1.55rem;color:var(--orange);flex:none}
 .svc-block p{color:var(--navy);margin-bottom:.8rem}
 .svc-block .checklist{margin-top:.4rem}
 .svc-block .btn{margin-top:.4rem}
 .svc-note{font-size:.9rem;opacity:.78;margin-top:.9rem!important}
+
+/* Sticky-stack: os cards sobem e se empilham um sobre o outro ao rolar */
+@media (min-width:821px){
+  .svc-list{display:block;max-width:900px;margin-inline:auto}
+  .svc-block{position:sticky;margin-bottom:26px;background:#fff;box-shadow:var(--shadow-md)}
+  .svc-block:nth-child(1){top:98px}
+  .svc-block:nth-child(2){top:110px}
+  .svc-block:nth-child(3){top:122px}
+  .svc-block:nth-child(4){top:134px}
+  .svc-block:nth-child(5){top:146px}
+  .svc-block:last-child{margin-bottom:0}
+}
 
 /* ===== Botões extra ===== */
 .btn--lg{padding:1em 2em;font-size:1.05rem}
