@@ -62,26 +62,29 @@ ul{margin:0;padding:0;list-style:none}
 .btn--upper{text-transform:uppercase;letter-spacing:.02em}
 
 /* ===== CTA beam (verde WhatsApp + luz girando na borda) =====
-   técnica de máscara (border-beam) — funciona no iOS Safari, sem overflow:hidden */
-@property --cta-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+   luz = camada conic girada por transform (rotate) + máscara em anel.
+   Não depende de @property interpolar ângulo, então roda em todo navegador. */
 .cta-btn{position:relative;display:inline-flex;border-radius:999px;line-height:1;text-decoration:none;
   isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.38)}
-.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:3px;
-  background:conic-gradient(from var(--cta-a,0deg),
-    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 200deg,
-    rgba(255,255,255,.95) 300deg,#fff 330deg,rgba(255,255,255,0) 360deg);
+.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:2.5px;
+  overflow:hidden;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
           mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  animation:cta-spin 3s linear infinite}
+  -webkit-mask-composite:xor;mask-composite:exclude}
+.cta-btn__beam::before{content:"";position:absolute;left:50%;top:50%;width:175%;aspect-ratio:1;
+  transform:translate(-50%,-50%);transform-origin:center;
+  background:conic-gradient(from 0deg,
+    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 230deg,
+    rgba(255,255,255,.55) 285deg,#fff 320deg,rgba(255,255,255,.55) 350deg,rgba(255,255,255,0) 360deg);
+  animation:cta-spin 2.6s linear infinite}
 .cta-btn__inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
   background:var(--wa);color:#fff;font-weight:700;font-size:.98rem;white-space:nowrap;
   border-radius:999px;padding:.9em 1.7em;transition:background .25s}
 .cta-btn:hover .cta-btn__inner{background:var(--wa-600)}
 .cta-btn svg{width:1.15em;height:1.15em;flex:none}
 .cta-btn--sm .cta-btn__inner{padding:.62em 1.25em;font-size:.92rem}
-@keyframes cta-spin{to{--cta-a:360deg}}
+@keyframes cta-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 
 /* CTA centralizado por seção */
 .sec-cta{text-align:center;margin-top:clamp(36px,5vw,52px)}
