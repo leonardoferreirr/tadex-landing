@@ -168,6 +168,25 @@ ul{margin:0;padding:0;list-style:none}
 .svcard__note{margin-top:auto;font-size:.9rem;color:var(--navy);background:var(--cream);
   border-radius:12px;padding:13px 15px}
 .svcard__note strong{color:var(--orange)}
+.svcard__tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--orange);background:var(--orange-100);border-radius:999px;padding:.3em .7em;margin-left:.4rem;vertical-align:middle}
+
+/* ===== CTA de cotação (botão + WhatsApp) ===== */
+.quote-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:1.6rem}
+.quote-cta__wa{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:var(--wa-600);font-size:.95rem}
+.quote-cta__wa svg{width:22px;height:22px;color:var(--wa);flex:none}
+.quote-cta__wa:hover{color:var(--wa)}
+
+/* ===== Regiões ===== */
+.estados{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:clamp(30px,5vw,46px)}
+.estados li{display:inline-flex;align-items:center;gap:.55rem;background:#fff;border:1px solid var(--gray-300);
+  border-radius:999px;padding:.7em 1.3em;font-weight:700;color:var(--navy);font-size:.95rem;box-shadow:var(--shadow-sm)}
+.estados li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);flex:none}
+.regioes-cta{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin-inline:auto}
+.regioes-card{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r-lg);padding:30px 28px;box-shadow:var(--shadow-sm)}
+.regioes-card h3{font-weight:700;color:var(--navy);font-size:1.2rem;margin-bottom:.5rem}
+.regioes-card p{color:var(--navy);font-size:.95rem;margin-bottom:1.3rem}
+@media(max-width:760px){.regioes-cta{grid-template-columns:1fr;max-width:460px}}
 
 /* ===== Depoimentos ===== */
 .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
@@ -249,9 +268,21 @@ ul{margin:0;padding:0;list-style:none}
   .svc-grid,.why-grid{grid-template-columns:1fr;max-width:360px;margin-inline:auto}
   .svcs{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
   .hero__cta .btn,.cta__btns .btn{flex:1;justify-content:center}
+  .sec-cta .btn{white-space:normal;text-align:center;line-height:1.35}
 }
+/* ===== Sticky-stack dos serviços (SOMENTE mobile) ===== */
+@media (max-width:680px){
+  .svcs{display:block;max-width:460px;margin-inline:auto}
+  .svcard{position:sticky;margin-bottom:18px}
+  .svcs .svcard:nth-child(1){top:84px}
+  .svcs .svcard:nth-child(2){top:100px}
+  .svcs .svcard:nth-child(3){top:116px}
+  .svcard:last-child{margin-bottom:24px}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
   .reveal{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
+  .svcard{position:static}
 }
