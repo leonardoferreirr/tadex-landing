@@ -100,6 +100,7 @@ ul{margin:0;padding:0;list-style:none}
 .nav a{font-weight:400;color:var(--black);font-size:.98rem;position:relative;padding:4px 0}
 .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--orange);transition:right .3s var(--ease)}
 .nav a:hover::after,.nav a.active::after{right:0}
+.nav__cta .btn--navy{color:#fff}
 .header__actions{display:flex;align-items:center;gap:12px}
 .nav-toggle{display:none;background:none;border:0;padding:8px;color:var(--navy)}
 .nav-toggle svg{width:28px;height:28px}
