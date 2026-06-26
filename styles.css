@@ -62,29 +62,26 @@ ul{margin:0;padding:0;list-style:none}
 .btn--upper{text-transform:uppercase;letter-spacing:.02em}
 
 /* ===== CTA beam (verde WhatsApp + luz girando na borda) =====
-   luz = camada conic girada por transform (rotate) + máscara em anel.
-   Não depende de @property interpolar ângulo, então roda em todo navegador. */
+   técnica de máscara (border-beam) — funciona no iOS Safari, sem overflow:hidden */
+@property --cta-a{syntax:'<angle>';inherits:false;initial-value:0deg}
 .cta-btn{position:relative;display:inline-flex;border-radius:999px;line-height:1;text-decoration:none;
   isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.38)}
-.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:2.5px;
-  overflow:hidden;
+.cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:3px;
+  background:conic-gradient(from var(--cta-a,0deg),
+    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 200deg,
+    rgba(255,255,255,.95) 300deg,#fff 330deg,rgba(255,255,255,0) 360deg);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
           mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude}
-.cta-btn__beam::before{content:"";position:absolute;left:50%;top:50%;width:175%;aspect-ratio:1;
-  transform:translate(-50%,-50%);transform-origin:center;
-  background:conic-gradient(from 0deg,
-    rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 230deg,
-    rgba(255,255,255,.55) 285deg,#fff 320deg,rgba(255,255,255,.55) 350deg,rgba(255,255,255,0) 360deg);
-  animation:cta-spin 2.6s linear infinite}
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:cta-spin 3s linear infinite}
 .cta-btn__inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
   background:var(--wa);color:#fff;font-weight:700;font-size:.98rem;white-space:nowrap;
   border-radius:999px;padding:.9em 1.7em;transition:background .25s}
 .cta-btn:hover .cta-btn__inner{background:var(--wa-600)}
 .cta-btn svg{width:1.15em;height:1.15em;flex:none}
 .cta-btn--sm .cta-btn__inner{padding:.62em 1.25em;font-size:.92rem}
-@keyframes cta-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes cta-spin{to{--cta-a:360deg}}
 
 /* CTA centralizado por seção */
 .sec-cta{text-align:center;margin-top:clamp(36px,5vw,52px)}
@@ -156,6 +153,22 @@ ul{margin:0;padding:0;list-style:none}
 .why h3{font-weight:700;color:var(--navy);font-size:1.12rem;margin-bottom:.5rem;line-height:1.25}
 .why p{color:var(--navy);font-size:.93rem}
 
+/* ===== Nossos Serviços (destaque) ===== */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.svcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--gray-300);border-top:4px solid var(--orange);
+  border-radius:var(--r-lg);padding:30px 26px;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s}
+.svcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.svcard__icon{width:54px;height:54px;display:grid;place-items:center;border-radius:14px;
+  background:var(--orange-100);color:var(--orange);margin-bottom:18px}
+.svcard__icon svg{width:30px;height:30px}
+.svcard h3{font-weight:700;color:var(--navy);font-size:1.22rem;margin-bottom:.55rem}
+.svcard>p{color:var(--navy);font-size:.95rem;margin-bottom:1rem}
+.svcard .checklist{margin-bottom:1rem}
+.svcard__note{margin-top:auto;font-size:.9rem;color:var(--navy);background:var(--cream);
+  border-radius:12px;padding:13px 15px}
+.svcard__note strong{color:var(--orange)}
+
 /* ===== Depoimentos ===== */
 .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .tst{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r);padding:30px 28px;
@@ -207,68 +220,9 @@ ul{margin:0;padding:0;list-style:none}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
-/* ===== Nossos Serviços ===== */
-.svc-intro{text-align:center;max-width:780px;margin:0 auto clamp(28px,4vw,42px);color:var(--navy);font-size:1.05rem}
-.svc-list{display:grid;gap:20px;max-width:900px;margin-inline:auto}
-.svc-block{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r);padding:28px 26px;
-  transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.svc-block:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}
-.svc-block h3{font-weight:700;color:var(--navy);font-size:1.2rem;margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem;line-height:1.25}
-.svc-block h3 svg{width:1.55rem;height:1.55rem;color:var(--orange);flex:none}
-.svc-block p{color:var(--navy);margin-bottom:.8rem}
-.svc-block .checklist{margin-top:.4rem}
-.svc-block .btn{margin-top:.4rem}
-.svc-note{font-size:.9rem;opacity:.78;margin-top:.9rem!important}
-
-/* Sticky-stack: os cards sobem e se empilham um sobre o outro ao rolar */
-@media (min-width:821px){
-  .svc-list{display:block;max-width:900px;margin-inline:auto}
-  .svc-block{position:sticky;margin-bottom:26px;background:#fff;box-shadow:var(--shadow-md)}
-  .svc-block:nth-child(1){top:98px}
-  .svc-block:nth-child(2){top:110px}
-  .svc-block:nth-child(3){top:122px}
-  .svc-block:nth-child(4){top:134px}
-  .svc-block:nth-child(5){top:146px}
-  .svc-block:last-child{margin-bottom:0}
-}
-
-/* ===== Botões extra ===== */
-.btn--lg{padding:1em 2em;font-size:1.05rem}
-.btn--wa{background:var(--wa);color:#fff}
-.btn--wa:hover{background:var(--wa-600);transform:translateY(-2px);box-shadow:0 10px 24px rgba(55,179,74,.3)}
-.btn--wa svg{width:1.25em;height:1.25em}
-.t-link{color:var(--orange);font-weight:700;text-decoration:underline}
-.split__body .btn{margin-top:.4rem}
-.split__body p+.btn{margin-top:.2rem}
-
-/* ===== Footer bar (com legal) ===== */
-.footer__bar{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;align-items:center;justify-content:center}
-.footer__legal a{color:#fff;text-decoration:underline;opacity:.92}
-.footer__legal a:hover{opacity:1}
-
-/* ===== Páginas legais (Privacidade / Termos) ===== */
-.legal-top{background:var(--navy)}
-.legal-top .container{display:flex;align-items:center;justify-content:space-between;gap:20px;height:78px}
-.legal-top img{height:36px;width:auto}
-.legal-back{color:#cdd4e0;font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:.2s}
-.legal-back:hover{color:#fff}
-.legal-back svg{width:18px;height:18px}
-.legal{padding-block:clamp(40px,6vw,72px)}
-.legal .container{max-width:820px}
-.legal h1{font-weight:700;color:var(--navy);font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.15;margin-bottom:.5rem}
-.legal__meta{color:var(--orange);font-weight:700;font-size:.92rem;margin-bottom:2rem}
-.legal h2{font-weight:700;color:var(--navy);font-size:1.2rem;margin:2.2rem 0 .7rem}
-.legal h2:first-of-type{margin-top:0}
-.legal p,.legal li{color:var(--navy);font-size:1rem;line-height:1.7}
-.legal p{margin-bottom:1rem}
-.legal ul{list-style:disc;padding-left:1.3rem;margin-bottom:1rem}
-.legal li{margin-bottom:.5rem}
-.legal a{color:var(--orange);font-weight:700;text-decoration:underline}
-.legal strong{font-weight:700}
-
 /* ===== Responsivo ===== */
 @media (max-width:1000px){
-  .svc-grid,.why-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+  .svc-grid,.why-grid,.svcs{grid-template-columns:repeat(2,1fr);gap:30px}
   .tst-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
   .footer__top{grid-template-columns:1fr 1fr;gap:34px}
 }
@@ -293,6 +247,7 @@ ul{margin:0;padding:0;list-style:none}
 @media (min-width:821px){.nav__cta{display:none}}
 @media (max-width:540px){
   .svc-grid,.why-grid{grid-template-columns:1fr;max-width:360px;margin-inline:auto}
+  .svcs{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
   .hero__cta .btn,.cta__btns .btn{flex:1;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
