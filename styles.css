@@ -299,3 +299,7 @@ ul{margin:0;padding:0;list-style:none}
   html{scroll-behavior:auto}
   .svcard{position:static}
 }
+
+/* Regiões Atendidas — mapa */
+.regioes-mapa{max-width:640px;margin:clamp(1.5rem,4vw,2.75rem) auto 0}
+.regioes-mapa img{width:100%;height:auto;display:block}
