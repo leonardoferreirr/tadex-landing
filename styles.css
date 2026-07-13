@@ -154,7 +154,7 @@ ul{margin:0;padding:0;list-style:none}
 .checklist svg{width:22px;height:22px;color:var(--orange);flex:none;margin-top:1px}
 
 /* ===== Por Que Escolher ===== */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .why{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r);padding:28px 24px;
   transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
 .why:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
