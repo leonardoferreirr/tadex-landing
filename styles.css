@@ -136,7 +136,7 @@ ul{margin:0;padding:0;list-style:none}
 .sec-head p{color:var(--navy);margin-top:.7rem;font-size:1.02rem}
 
 /* ===== Serviços (Acesso Rápido) ===== */
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .svc{padding:6px 8px}
 .svc__icon{color:var(--orange);margin-bottom:14px}
 .svc__icon svg{width:40px;height:40px}
@@ -147,6 +147,7 @@ ul{margin:0;padding:0;list-style:none}
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,60px);align-items:stretch}
 .split__media{display:flex}
 .split__media img{width:100%;height:100%;min-height:260px;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);object-fit:cover}
+.split__body{display:flex;flex-direction:column;justify-content:center}
 .split__body h3{font-weight:700;color:var(--navy);font-size:clamp(1.4rem,2.8vw,1.85rem);line-height:1.2;margin-bottom:1rem}
 .split__body p{color:var(--navy);margin-bottom:1.4rem}
 .checklist li{display:flex;align-items:flex-start;gap:.7rem;font-weight:400;color:var(--navy);margin-bottom:.8rem;font-size:.98rem}
