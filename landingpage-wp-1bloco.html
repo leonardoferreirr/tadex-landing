@@ -58,11 +58,11 @@
 #tdx-lp .sec-cta .cta-btn{justify-content:center}
 
 /* Header */
-#tdx-lp .header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(10px);
-  border-bottom:1px solid transparent;transition:box-shadow .3s,border-color .3s}
+#tdx-lp .header{position:relative;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(10px);
+  border-bottom:1px solid var(--gray-300);transition:box-shadow .3s,border-color .3s}
 #tdx-lp .header.scrolled{box-shadow:var(--shadow-sm);border-color:var(--gray-300)}
-#tdx-lp .header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
-#tdx-lp .brand img{height:38px;width:auto}
+#tdx-lp .header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+#tdx-lp .brand img{height:28px;width:auto}
 #tdx-lp .nav{display:flex;align-items:center;gap:34px}
 #tdx-lp .nav>a{font-weight:400;color:var(--black);font-size:.98rem;position:relative;padding:4px 0}
 #tdx-lp .nav>a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--orange);transition:right .3s var(--ease)}
@@ -158,7 +158,7 @@
 @media (max-width:1024px){
   #tdx-lp .nav{display:none}
   #tdx-lp .nav-toggle{display:inline-flex}
-  #tdx-lp .nav.open{display:flex;position:fixed;inset:78px 0 auto 0;flex-direction:column;gap:0;background:#fff;padding:8px 20px 20px;box-shadow:var(--shadow-md);border-bottom:1px solid var(--gray-300);z-index:60}
+  #tdx-lp .nav.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;padding:8px 20px 20px;box-shadow:var(--shadow-md);border-bottom:1px solid var(--gray-300);z-index:60}
   #tdx-lp .nav.open>a{padding:14px 0;border-bottom:1px solid var(--gray-300);width:100%}
   #tdx-lp .nav.open .nav__cta{display:flex;gap:12px;margin-top:16px;width:100%}
   #tdx-lp .nav.open .nav__cta .cta-btn{display:inline-flex;flex:1 1 0;justify-content:center}
@@ -182,6 +182,8 @@
 /* ===== Armadura anti-tema: garante o essencial mesmo sob CSS agressivo do WordPress/Elementor ===== */
 #tdx-lp .container{max-width:1200px!important;padding-inline:clamp(20px,5vw,40px)!important}
 #tdx-lp img{border:0!important;box-shadow:none!important;max-width:100%!important;height:auto!important}
+#tdx-lp .brand img{height:28px!important;width:auto!important}
+#tdx-lp .footer__brand img{height:40px!important;width:auto!important}
 #tdx-lp .why-grid{display:grid!important}
 #tdx-lp .svcs{display:grid!important}
 #tdx-lp .footer__top{display:grid!important}
