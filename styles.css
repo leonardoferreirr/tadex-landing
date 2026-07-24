@@ -109,6 +109,11 @@ ul{margin:0;padding:0;list-style:none}
 .nav__util a::after{display:none}
 .nav__util a svg{width:1.05em;height:1.05em;flex:none}
 .nav__util a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+/* Botões de destaque (mais usados pelos clientes) */
+.nav__util a.nu--navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav__util a.nu--navy:hover{background:#10193a;border-color:#10193a}
+.nav__util a.nu--orange{background:var(--orange);color:#fff;border-color:var(--orange)}
+.nav__util a.nu--orange:hover{background:var(--orange-600);border-color:var(--orange-600)}
 
 /* ===== Hero ===== */
 .hero{position:relative;background:var(--hero);color:#fff;overflow:hidden}
@@ -136,12 +141,21 @@ ul{margin:0;padding:0;list-style:none}
 .sec-head p{color:var(--navy);margin-top:.7rem;font-size:1.02rem}
 
 /* ===== Serviços (Acesso Rápido) ===== */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.svc{padding:6px 8px}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.svc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--gray-300);border-radius:var(--r);
+  padding:26px 22px;text-align:left;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+a.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
 .svc__icon{color:var(--orange);margin-bottom:14px}
-.svc__icon svg{width:40px;height:40px}
-.svc h3{font-weight:700;color:var(--navy);font-size:1.15rem;margin-bottom:.5rem}
-.svc p{color:var(--navy);font-size:.95rem}
+.svc__icon svg{width:38px;height:38px}
+.svc h3{font-weight:700;color:var(--navy);font-size:1.1rem;margin-bottom:.5rem}
+.svc p{color:var(--navy);font-size:.92rem;margin-bottom:1rem}
+.svc__go{margin-top:auto;display:inline-flex;align-items:center;gap:.4em;font-weight:700;font-size:.9rem;color:var(--orange)}
+.svc__go svg{width:1.05em;height:1.05em;flex:none}
+.svc__links{margin-top:auto;display:flex;flex-direction:column;gap:.55rem}
+.svc__links a{display:inline-flex;align-items:center;gap:.45em;font-weight:700;font-size:.88rem;color:var(--orange);transition:gap .2s var(--ease)}
+.svc__links a:hover{gap:.7em}
+.svc__links a.is-sub{color:var(--navy);font-weight:600}
+.svc__links svg{width:1.05em;height:1.05em;flex:none}
 
 /* ===== Split (Soluções / Cotação) ===== */
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,60px);align-items:stretch}
@@ -305,3 +319,19 @@ ul{margin:0;padding:0;list-style:none}
 /* Regiões Atendidas — mapa */
 .regioes-mapa{max-width:640px;margin:clamp(1.5rem,4vw,2.75rem) auto 0}
 .regioes-mapa img{width:100%;height:auto;display:block}
+
+/* Regiões Atendidas — conteúdo + mapa (site principal) */
+.regioes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,52px);align-items:center;max-width:1040px;margin-inline:auto}
+.regioes__media img{width:100%;height:auto;border-radius:var(--r-lg);display:block;margin-inline:auto;max-width:460px}
+.regioes__body h3{font-weight:700;color:var(--navy);font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.8rem;line-height:1.25}
+.regioes__body>p{color:var(--navy);margin-bottom:1.1rem;font-size:.98rem}
+.regioes .estados{justify-content:flex-start;margin-bottom:1.4rem}
+.regioes__actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1rem}
+.regioes__note{font-size:.85rem;color:#5a6478;line-height:1.5;margin-top:.2rem}
+.btn--outline{background:#fff;color:var(--navy);border-color:var(--gray-300)}
+.btn--outline:hover{border-color:var(--navy);transform:translateY(-2px)}
+@media(max-width:860px){
+  .regioes{grid-template-columns:1fr;max-width:520px}
+  .regioes__media{order:-1}
+}
+@media(max-width:540px){.regioes__actions .btn{flex:1;justify-content:center;white-space:normal;text-align:center}}

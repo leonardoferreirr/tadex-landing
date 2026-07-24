@@ -1,52 +1,234 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TADEX Transportes | Logística com Eficiência e Segurança</title>
-<meta name="description" content="Com +30 anos de expertise, a TADEX transforma a complexidade da logística em simplicidade. Rastreamento avançado, segurança garantida e prazos que você pode confiar.">
-<meta name="theme-color" content="#F54900">
-<meta name="google-site-verification" content="p4lfrZ0KooXBpbHrXmbqZhqB7YGCfncGIwSsD0xwXKo" />
-<meta property="og:title" content="TADEX Transportes | Sua carga chega longe">
-<meta property="og:description" content="Rastreamento em tempo real, equipe especializada e prazos garantidos. Tá rápido, tá seguro, TADEX.">
-<meta property="og:type" content="website">
-<link rel="preload" as="image" href="https://tadex.vercel.app/assets/hero-truck.webp" fetchpriority="high" media="(min-width:821px)">
-<link rel="preload" as="image" href="https://tadex.vercel.app/assets/hero-truck-mobile.webp" fetchpriority="high" media="(max-width:820px)">
-<link rel="preload" as="font" type="font/woff2" href="https://tadex.vercel.app/assets/poppins-700.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="https://tadex.vercel.app/assets/poppins-400.woff2" crossorigin>
-<link rel="icon" href="https://tadex.vercel.app/assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="https://tadex.vercel.app/assets/favicon-32.png">
-<link rel="apple-touch-icon" href="https://tadex.vercel.app/assets/favicon-180.png">
-<link rel="stylesheet" href="https://tadex.vercel.app/styles.css">
-<style>.reveal{opacity:1 !important;transform:none !important}</style>
-</head>
-<body>
+<!-- ============================================================
+     TADEX · Landing Page para WordPress (Elementor HTML widget)
+     Bloco único, CSS 100% inline e escopado em #tdx-lp.
+     NÃO depende de tadex.vercel.app para estilo (só imagens/fontes).
+     Colar TODO este conteúdo dentro de um widget HTML do Elementor.
+     ============================================================ -->
+<style id="tdx-lp-css">
+/* Fontes (self-hosted no vercel) */
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-400.woff2) format('woff2')}
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-700.woff2) format('woff2')}
 
-<!-- ===== Header ===== -->
-<header class="header" id="top">
+#tdx-lp{
+  --orange:#f54900;--orange-600:#d93f00;--orange-100:#fdede4;--navy:#081027;--black:#231f20;
+  --hero:#08111d;--cream:#faf1ec;--wa:#37b34a;--wa-600:#2e9a3f;--gray-300:#E4E7EC;--foot-text:#9aa4b6;
+  --shadow-sm:0 2px 8px rgba(8,16,39,.06);--shadow-md:0 12px 30px rgba(8,16,39,.10);--shadow-lg:0 24px 60px rgba(8,16,39,.14);
+  --r:16px;--r-lg:22px;--maxw:1200px;--ease:cubic-bezier(.22,.61,.36,1);
+  font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--navy);line-height:1.6;background:#fff;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+#tdx-lp *,#tdx-lp *::before,#tdx-lp *::after{box-sizing:border-box}
+#tdx-lp img{max-width:100%;display:block;height:auto}
+#tdx-lp a{color:inherit;text-decoration:none}
+#tdx-lp h1,#tdx-lp h2,#tdx-lp h3,#tdx-lp p{margin:0}
+#tdx-lp ul{margin:0;padding:0;list-style:none}
+#tdx-lp button{font-family:inherit;cursor:pointer}
+#tdx-lp .container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+#tdx-lp .section{padding-block:clamp(48px,7vw,88px)}
+#tdx-lp .bg-cream{background:var(--cream)}
+
+/* Botões */
+#tdx-lp .btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:.98rem;
+  padding:.85em 1.6em;border-radius:999px;border:2px solid transparent;
+  transition:transform .25s var(--ease),background .25s,box-shadow .25s,color .25s;white-space:nowrap;line-height:1}
+#tdx-lp .btn svg{width:1.15em;height:1.15em;flex:none}
+#tdx-lp .btn--navy{background:var(--navy);color:#fff}
+#tdx-lp .btn--navy:hover{background:#10193a;transform:translateY(-2px)}
+#tdx-lp .btn--white-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+#tdx-lp .btn--white-ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+
+/* CTA verde com feixe girando */
+#tdx-lp .cta-btn{position:relative;display:inline-flex;border-radius:999px;line-height:1;text-decoration:none;
+  isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s}
+#tdx-lp .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.38)}
+#tdx-lp .cta-btn__beam{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;padding:2.5px;overflow:hidden;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude}
+#tdx-lp .cta-btn__beam::before{content:"";position:absolute;left:50%;top:50%;width:175%;aspect-ratio:1;transform:translate(-50%,-50%);transform-origin:center;
+  background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 230deg,rgba(255,255,255,.55) 285deg,#fff 320deg,rgba(255,255,255,.55) 350deg,rgba(255,255,255,0) 360deg);
+  animation:tdx-spin 2.6s linear infinite}
+#tdx-lp .cta-btn__inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
+  background:var(--wa);color:#fff;font-weight:700;font-size:.98rem;white-space:nowrap;border-radius:999px;padding:.9em 1.7em;transition:background .25s}
+#tdx-lp .cta-btn:hover .cta-btn__inner{background:var(--wa-600)}
+#tdx-lp .cta-btn svg{width:1.15em;height:1.15em;flex:none}
+#tdx-lp .cta-btn--sm .cta-btn__inner{padding:.62em 1.25em;font-size:.92rem}
+@keyframes tdx-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+#tdx-lp .sec-cta{text-align:center;margin-top:clamp(36px,5vw,52px)}
+#tdx-lp .sec-cta .cta-btn{justify-content:center}
+
+/* Header */
+#tdx-lp .header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(10px);
+  border-bottom:1px solid transparent;transition:box-shadow .3s,border-color .3s}
+#tdx-lp .header.scrolled{box-shadow:var(--shadow-sm);border-color:var(--gray-300)}
+#tdx-lp .header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+#tdx-lp .brand img{height:38px;width:auto}
+#tdx-lp .nav{display:flex;align-items:center;gap:34px}
+#tdx-lp .nav>a{font-weight:400;color:var(--black);font-size:.98rem;position:relative;padding:4px 0}
+#tdx-lp .nav>a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--orange);transition:right .3s var(--ease)}
+#tdx-lp .nav>a:hover::after{right:0}
+#tdx-lp .header__actions{display:flex;align-items:center;gap:12px}
+#tdx-lp .nav-toggle{display:none;background:none;border:0;padding:8px;color:var(--navy)}
+#tdx-lp .nav-toggle svg{width:28px;height:28px}
+
+/* Hero */
+#tdx-lp .hero{position:relative;background:var(--hero);color:#fff;overflow:hidden}
+#tdx-lp .hero__bg{position:absolute;inset:0;background:var(--hero) url(https://tadex.vercel.app/assets/hero-truck.webp) center right/cover no-repeat}
+#tdx-lp .hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,17,29,.78) 0%,rgba(8,17,29,.6) 38%,rgba(8,17,29,.28) 62%,rgba(8,17,29,0) 85%)}
+#tdx-lp .hero__inner{position:relative;z-index:2;padding-block:clamp(64px,9vw,112px);max-width:820px}
+#tdx-lp .hero__title{color:var(--orange);font-weight:700;line-height:1.05;font-size:clamp(2rem,4.2vw,2.85rem);letter-spacing:-.015em;margin-bottom:.7rem}
+#tdx-lp .hero__sub{color:#fff;font-weight:700;line-height:1.12;font-size:clamp(1.45rem,3.2vw,2.15rem);margin-bottom:1.1rem}
+#tdx-lp .hero__highlights{color:var(--orange);font-weight:700;font-size:clamp(1rem,2vw,1.18rem);letter-spacing:-.01em;margin-bottom:1.1rem}
+#tdx-lp .hero__lead{color:rgba(255,255,255,.92);font-size:1.02rem;max-width:540px;margin-bottom:2rem}
+#tdx-lp .hero__cta{display:flex;flex-wrap:wrap;gap:14px}
+#tdx-lp .hero__badge{position:absolute;z-index:3;top:clamp(40px,6vw,68px);right:clamp(20px,7vw,110px);width:clamp(86px,11vw,128px);height:auto;aspect-ratio:256/249;filter:drop-shadow(0 10px 22px rgba(0,0,0,.4));animation:tdx-float 5s ease-in-out infinite}
+@keyframes tdx-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* Cabeçalho de seção */
+#tdx-lp .sec-head{text-align:center;max-width:760px;margin:0 auto clamp(40px,6vw,64px)}
+#tdx-lp .sec-icon{width:52px;height:52px;margin:0 auto 18px;display:grid;place-items:center;border-radius:14px;background:var(--orange-100);color:var(--orange)}
+#tdx-lp .sec-icon svg{width:28px;height:28px}
+#tdx-lp .sec-head h2{font-weight:700;font-size:clamp(1.65rem,3.6vw,2.4rem);letter-spacing:-.01em}
+#tdx-lp .sec-head h2.t-orange{color:var(--orange)}
+#tdx-lp .sec-head h2.t-navy{color:var(--navy)}
+#tdx-lp .sec-head p{color:var(--navy);margin-top:.7rem;font-size:1.02rem}
+
+/* Por Que Escolher */
+#tdx-lp .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+#tdx-lp .why{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r);padding:28px 24px;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+#tdx-lp .why:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
+#tdx-lp .why__icon{color:var(--orange);margin-bottom:14px}
+#tdx-lp .why__icon svg{width:38px;height:38px}
+#tdx-lp .why h3{font-weight:700;color:var(--navy);font-size:1.12rem;margin-bottom:.5rem;line-height:1.25}
+#tdx-lp .why p{color:var(--navy);font-size:.93rem}
+
+/* Nossos Serviços */
+#tdx-lp .svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+#tdx-lp .svcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--gray-300);border-top:4px solid var(--orange);border-radius:var(--r-lg);padding:30px 26px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+#tdx-lp .svcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+#tdx-lp .svcard__icon{width:54px;height:54px;display:grid;place-items:center;border-radius:14px;background:var(--orange-100);color:var(--orange);margin-bottom:18px}
+#tdx-lp .svcard__icon svg{width:30px;height:30px}
+#tdx-lp .svcard h3{font-weight:700;color:var(--navy);font-size:1.22rem;margin-bottom:.55rem}
+#tdx-lp .svcard>p{color:var(--navy);font-size:.95rem;margin-bottom:1rem}
+#tdx-lp .svcard .checklist{margin-bottom:1rem}
+#tdx-lp .svcard__note{margin-top:auto;font-size:.9rem;color:var(--navy);background:var(--cream);border-radius:12px;padding:13px 15px}
+#tdx-lp .svcard__note strong{color:var(--orange)}
+#tdx-lp .checklist li{display:flex;align-items:flex-start;gap:.7rem;font-weight:400;color:var(--navy);margin-bottom:.8rem;font-size:.98rem}
+#tdx-lp .checklist svg{width:22px;height:22px;color:var(--orange);flex:none;margin-top:1px}
+
+/* Regiões Atendidas — mapa */
+#tdx-lp .regioes-mapa{max-width:640px;margin:clamp(1.5rem,4vw,2.75rem) auto 0}
+#tdx-lp .regioes-mapa img{width:100%;height:auto;display:block}
+
+/* CTA band */
+#tdx-lp .cta{background:var(--orange);color:#fff;text-align:center}
+#tdx-lp .cta .sec-icon{background:rgba(255,255,255,.18);color:#fff}
+#tdx-lp .cta h2{font-weight:700;font-size:clamp(1.7rem,3.8vw,2.5rem);margin-bottom:.8rem}
+#tdx-lp .cta p{color:rgba(255,255,255,.92);max-width:620px;margin:0 auto 2rem;font-size:1.05rem}
+#tdx-lp .cta__btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+/* Footer */
+#tdx-lp .footer{background:var(--navy);color:#cdd4e0}
+#tdx-lp .footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-block:clamp(48px,6vw,72px)}
+#tdx-lp .footer__brand img{height:40px;width:auto;margin-bottom:18px}
+#tdx-lp .footer__brand p{color:var(--foot-text);font-size:.95rem;max-width:240px}
+#tdx-lp .footer h3{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:18px}
+#tdx-lp .footer__col a{display:block;color:var(--foot-text);margin-bottom:12px;font-size:.95rem;transition:.2s}
+#tdx-lp .footer__col a:hover{color:#fff;padding-left:3px}
+#tdx-lp .footer__contact li{display:flex;align-items:center;gap:.6rem;color:var(--foot-text);margin-bottom:12px;font-size:.95rem}
+#tdx-lp .footer__contact svg{width:18px;height:18px;color:var(--orange);flex:none}
+#tdx-lp .footer__contact a{color:var(--foot-text)}
+#tdx-lp .footer__bar{background:#c43d00;color:#fff;text-align:center;font-size:.82rem;padding:14px 16px;font-weight:400}
+
+/* WhatsApp float */
+#tdx-lp .wa{position:fixed;right:22px;bottom:22px;z-index:70;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(55,179,74,.45);transition:transform .25s var(--ease)}
+#tdx-lp .wa:hover{transform:scale(1.08)}
+#tdx-lp .wa svg{width:32px;height:32px;color:#fff}
+#tdx-lp .wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);z-index:-1;animation:tdx-pulse 2.2s ease-out infinite}
+@keyframes tdx-pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.9);opacity:0}}
+
+/* Reveal desativado no WP (sempre visível, sem depender de JS) */
+#tdx-lp .reveal{opacity:1;transform:none}
+
+/* Responsivo */
+@media (max-width:1000px){
+  #tdx-lp .why-grid,#tdx-lp .svcs{grid-template-columns:repeat(2,1fr);gap:30px}
+  #tdx-lp .footer__top{grid-template-columns:1fr 1fr;gap:34px}
+}
+@media (max-width:1024px){
+  #tdx-lp .nav{display:none}
+  #tdx-lp .nav-toggle{display:inline-flex}
+  #tdx-lp .nav.open{display:flex;position:fixed;inset:78px 0 auto 0;flex-direction:column;gap:0;background:#fff;padding:8px 20px 20px;box-shadow:var(--shadow-md);border-bottom:1px solid var(--gray-300);z-index:60}
+  #tdx-lp .nav.open>a{padding:14px 0;border-bottom:1px solid var(--gray-300);width:100%}
+  #tdx-lp .nav.open .nav__cta{display:flex;gap:12px;margin-top:16px;width:100%}
+  #tdx-lp .nav.open .nav__cta .cta-btn{display:inline-flex;flex:1 1 0;justify-content:center}
+  #tdx-lp .nav.open .nav__cta .cta-btn__inner{width:100%;padding-block:.95em}
+}
+@media (max-width:820px){
+  #tdx-lp .header__actions .cta-btn{display:none}
+  #tdx-lp .header__actions{gap:0}
+  #tdx-lp .hero__bg{background-image:url(https://tadex.vercel.app/assets/hero-truck-mobile.webp);background-position:center right -40px}
+  #tdx-lp .hero__bg::after{background:linear-gradient(180deg,rgba(8,16,24,.55) 0%,rgba(8,16,24,.82) 70%,rgba(8,16,24,.92) 100%)}
+  #tdx-lp .hero__badge{top:46px;right:16px}
+}
+@media (min-width:1025px){#tdx-lp .nav__cta{display:none}}
+@media (max-width:540px){
+  #tdx-lp .why-grid{grid-template-columns:1fr;max-width:360px;margin-inline:auto}
+  #tdx-lp .svcs{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
+  #tdx-lp .hero__cta .cta-btn{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){#tdx-lp *{animation:none!important}}
+
+/* ===== Armadura anti-tema: garante o essencial mesmo sob CSS agressivo do WordPress/Elementor ===== */
+#tdx-lp .container{max-width:1200px!important;padding-inline:clamp(20px,5vw,40px)!important}
+#tdx-lp img{border:0!important;box-shadow:none!important;max-width:100%!important;height:auto!important}
+#tdx-lp .why-grid{display:grid!important}
+#tdx-lp .svcs{display:grid!important}
+#tdx-lp .footer__top{display:grid!important}
+#tdx-lp,#tdx-lp *{font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif!important}
+#tdx-lp .hero__title{color:var(--orange)!important}
+#tdx-lp .sec-head h2.t-orange{color:var(--orange)!important}
+#tdx-lp .sec-head h2.t-navy{color:var(--navy)!important}
+#tdx-lp .why h3,#tdx-lp .svcard h3{color:var(--navy)!important}
+#tdx-lp .cta h2,#tdx-lp .footer h3{color:#fff!important}
+#tdx-lp .cta-btn,#tdx-lp .btn{display:inline-flex!important;width:auto!important}
+#tdx-lp .header,#tdx-lp .hero,#tdx-lp .section,#tdx-lp .footer{max-width:none!important}
+#tdx-lp .section{background:transparent!important}
+#tdx-lp .bg-cream{background:var(--cream)!important}
+#tdx-lp .hero{background:var(--hero)!important}
+#tdx-lp .cta{background:var(--orange)!important}
+#tdx-lp .footer{background:var(--navy)!important}
+#tdx-lp .footer__bar{background:#c43d00!important}
+#tdx-lp .header{background:rgba(255,255,255,.92)!important}
+@media (max-width:1000px){#tdx-lp .why-grid,#tdx-lp .svcs{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:540px){#tdx-lp .why-grid,#tdx-lp .svcs{grid-template-columns:1fr!important}}
+</style>
+
+<div id="tdx-lp">
+<!-- Header -->
+<header class="header" id="tdx-top">
   <div class="container header__inner">
-    <a class="brand" href="#top" aria-label="TADEX Transportes">
+    <a class="brand" href="#tdx-top" aria-label="TADEX Transportes">
       <img src="https://tadex.vercel.app/assets/logo.webp" alt="TADEX Transportes" width="244" height="81">
     </a>
-    <nav class="nav" id="nav">
-      <a href="#top">Home</a>
-      <a href="#regioes">Por Que a TADEX</a>
+    <nav class="nav" id="tdx-nav">
+      <a href="#tdx-top">Home</a>
+      <a href="#tdx-regioes">Por Que a TADEX</a>
       <div class="nav__cta">
         <a href="https://wa.me/551122071978?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete%20com%20a%20TADEX." target="_blank" rel="noopener" class="cta-btn"><span class="cta-btn__beam" aria-hidden="true"></span><span class="cta-btn__inner">Faça sua Cotação</span></a>
       </div>
     </nav>
     <div class="header__actions">
       <a href="https://wa.me/551122071978?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete%20com%20a%20TADEX." target="_blank" rel="noopener" class="cta-btn cta-btn--sm"><span class="cta-btn__beam" aria-hidden="true"></span><span class="cta-btn__inner">Faça sua Cotação</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <button class="nav-toggle" id="tdx-navToggle" aria-label="Abrir menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </div>
 </header>
 
-<main>
-<!-- ===== Hero ===== -->
-<section class="hero" id="cotacao">
+<!-- Hero -->
+<section class="hero">
   <div class="hero__bg" role="img" aria-label="Caminhão TADEX em rodovia ao entardecer"></div>
   <img class="hero__badge" src="https://tadex.vercel.app/assets/badge-30.webp" alt="Selo +30 anos TADEX" width="256" height="249">
   <div class="container hero__inner">
@@ -63,8 +245,8 @@
   </div>
 </section>
 
-<!-- ===== Por Que Escolher ===== -->
-<section class="section bg-cream" id="regioes">
+<!-- Por Que Escolher -->
+<section class="section bg-cream" id="tdx-regioes">
   <div class="container">
     <div class="sec-head reveal">
       <div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg></div>
@@ -88,17 +270,11 @@
         <p>Profissionais dedicados a transformar sua logística em vantagem competitiva</p>
       </article>
     </div>
-    <div class="sec-cta reveal">
-      <a href="https://wa.me/551122071978?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete%20com%20a%20TADEX." target="_blank" rel="noopener" class="cta-btn">
-        <span class="cta-btn__beam" aria-hidden="true"></span>
-        <span class="cta-btn__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h6M7 12h10M7 16h4"/></svg>Faça sua Cotação</span>
-      </a>
-    </div>
   </div>
 </section>
 
-<!-- ===== Nossos Serviços ===== -->
-<section class="section" id="servicos">
+<!-- Nossos Serviços -->
+<section class="section" id="tdx-servicos">
   <div class="container">
     <div class="sec-head reveal">
       <div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="6" width="12" height="9" rx="1"/><path d="M13.5 9H17l3.5 3.5V15h-7z"/><circle cx="6" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg></div>
@@ -138,52 +314,19 @@
   </div>
 </section>
 
-<!-- ===== Regiões Atendidas ===== -->
-<section class="section bg-cream" id="regioes-mapa">
+<!-- Regiões Atendidas -->
+<section class="section bg-cream" id="tdx-regioes-mapa">
   <div class="container">
     <div class="sec-head reveal">
       <h2 class="t-orange">Regiões Atendidas</h2>
     </div>
     <div class="regioes-mapa reveal">
-      <img src="//www.tadex.com.br/wp-content/uploads/2026/07/mapa-1.png" alt="Mapa de atuação da TADEX: captação em São Paulo com entregas para Rio de Janeiro, Minas Gerais, Espírito Santo e Distrito Federal" width="1738" height="1544" loading="lazy" decoding="async">
+      <img src="https://tadex.vercel.app/assets/mapa-regioes.webp" alt="Mapa de atuação da TADEX: captação em São Paulo com entregas para Rio de Janeiro, Minas Gerais, Espírito Santo e Distrito Federal" width="930" height="812" loading="eager" decoding="async">
     </div>
   </div>
 </section>
 
-<!-- ===== Como Funciona ===== -->
-<section class="section">
-  <div class="container">
-    <div class="sec-head reveal">
-      <div class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-      <h2 class="t-navy">Como Funciona</h2>
-    </div>
-    <div class="why-grid">
-      <article class="why reveal">
-        <div class="why__icon"><strong style="font-size:1.4rem">1</strong></div>
-        <h3>Solicite sua cotação</h3>
-        <p>Informe a origem, destino, peso e tipo de carga pelo WhatsApp. É rápido e simples.</p>
-      </article>
-      <article class="why reveal">
-        <div class="why__icon"><strong style="font-size:1.4rem">2</strong></div>
-        <h3>Nossa equipe analisa</h3>
-        <p>Em até 30 minutos, você recebe uma cotação personalizada, em horário comercial.</p>
-      </article>
-      <article class="why reveal">
-        <div class="why__icon"><strong style="font-size:1.4rem">3</strong></div>
-        <h3>Confirme e Pronto</h3>
-        <p>Coleta agendada e rastreamento em tempo real. Seu frete saiu do forno.</p>
-      </article>
-    </div>
-    <div class="sec-cta reveal">
-      <a href="https://wa.me/551122071978?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete%20com%20a%20TADEX." target="_blank" rel="noopener" class="cta-btn">
-        <span class="cta-btn__beam" aria-hidden="true"></span>
-        <span class="cta-btn__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h6M7 12h10M7 16h4"/></svg>Faça sua Cotação</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA ===== -->
+<!-- CTA -->
 <section class="section cta">
   <div class="container">
     <div class="sec-icon reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg></div>
@@ -197,10 +340,9 @@
     </div>
   </div>
 </section>
-</main>
 
-<!-- ===== Footer ===== -->
-<footer class="footer" id="contato">
+<!-- Footer -->
+<footer class="footer" id="tdx-contato">
   <div class="container footer__top">
     <div class="footer__brand">
       <img src="https://tadex.vercel.app/assets/logo-white.webp" alt="TADEX Transportes" width="244" height="81" loading="lazy">
@@ -208,8 +350,8 @@
     </div>
     <div class="footer__col">
       <h3>Navegação</h3>
-      <a href="#regioes">Por Que a TADEX</a>
-      <a href="#contato">Trabalhe Conosco</a>
+      <a href="#tdx-regioes">Por Que a TADEX</a>
+      <a href="https://www.tadex.com.br/trabalhe-conosco/" target="_blank" rel="noopener">Trabalhe Conosco</a>
     </div>
     <div class="footer__col">
       <h3>Contato</h3>
@@ -226,28 +368,24 @@
 <a class="wa" href="https://wa.me/551122071978" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.05 24l1.7-6.2A11.9 11.9 0 0 1 12 0a11.9 11.9 0 0 1 8.4 20.3A11.9 11.9 0 0 1 6.3 22.3zM6.7 20l.4.2a9.9 9.9 0 0 0 5 1.4 9.9 9.9 0 1 0-9.9-9.9c0 1.8.5 3.6 1.4 5.1l.3.4-1 3.6zM17.5 14.3c-.1-.2-.5-.4-1-.6s-1.5-.7-1.7-.8-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.4.1-.6l.4-.5.3-.5v-.5L8 6.6c-.2-.4-.3-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.2c0 1.3 1 2.6 1.1 2.8s1.9 2.9 4.6 4a16 16 0 0 0 1.5.6c.6.2 1.2.2 1.7.1.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2z"/></svg>
 </a>
+</div>
 
 <script>
-// Header: sombra ao rolar
-const header = document.querySelector('.header');
-const onScroll = () => header && header.classList.toggle('scrolled', window.scrollY > 8);
-onScroll();
-window.addEventListener('scroll', onScroll, { passive: true });
-// Menu mobile
-const toggle = document.getElementById('navToggle');
-const nav = document.getElementById('nav');
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  nav.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    })
-  );
-}
+(function(){
+  var root=document.getElementById('tdx-lp'); if(!root) return;
+  var header=root.querySelector('.header');
+  var onScroll=function(){ if(header) header.classList.toggle('scrolled', window.scrollY>8); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  var toggle=document.getElementById('tdx-navToggle');
+  var nav=document.getElementById('tdx-nav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+    });
+  }
+})();
 </script>
-</body>
-</html>
