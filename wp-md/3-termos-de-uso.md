@@ -132,6 +132,12 @@
 #tdx-legal .footer h3{color:#fff}
 #tdx-legal .legal__body p,#tdx-legal .legal__body li{color:#3d4658}
 
+/* Esconde a barra de admin do WP (so aparece para usuario logado).
+   Regras globais de proposito: #wpadminbar vive fora do bloco. */
+#wpadminbar{display:none !important}
+html{margin-top:0 !important}
+html.wp-toolbar{padding-top:0 !important}
+
 </style>
 
 <div id="tdx-legal">

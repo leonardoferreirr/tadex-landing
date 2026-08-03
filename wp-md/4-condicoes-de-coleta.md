@@ -5,7 +5,7 @@
 | **Título da página** | Condicoes para Solicitacao de Coleta |
 | **Slug** | `/condicoes-de-coleta` |
 | **Origem** | `wp-coleta.html` |
-| **Tamanho** | 39 KB |
+| **Tamanho** | 40 KB |
 
 > **Atenção:** O site antigo usava /coleta. Se quiser preservar o link antigo, use esse slug.
 
@@ -133,6 +133,12 @@
 #tdx-legal .legal-hero p{color:rgba(255,255,255,.72)}
 #tdx-legal .footer h3{color:#fff}
 #tdx-legal .legal__body p,#tdx-legal .legal__body li{color:#3d4658}
+
+/* Esconde a barra de admin do WP (so aparece para usuario logado).
+   Regras globais de proposito: #wpadminbar vive fora do bloco. */
+#wpadminbar{display:none !important}
+html{margin-top:0 !important}
+html.wp-toolbar{padding-top:0 !important}
 
 </style>
 

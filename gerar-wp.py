@@ -58,6 +58,14 @@ css_escopado += f"""
 {ESCOPO} .legal__body p,{ESCOPO} .legal__body li{{color:#3d4658}}
 """
 
+css_escopado += """
+/* Esconde a barra de admin do WP (so aparece para usuario logado).
+   Regras globais de proposito: #wpadminbar vive fora do bloco. */
+#wpadminbar{display:none !important}
+html{margin-top:0 !important}
+html.wp-toolbar{padding-top:0 !important}
+"""
+
 for nome, slug in SLUGS.items():
     origem = BASE / f"{nome}.html"
     html = origem.read_text(encoding="utf-8")

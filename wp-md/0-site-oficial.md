@@ -5,7 +5,7 @@
 | **Título da página** | TADEX Transportes |
 | **Slug** | `/` |
 | **Origem** | `wp-site.html` |
-| **Tamanho** | 55 KB |
+| **Tamanho** | 56 KB |
 
 > **Atenção:** E o site de hoje (tadex.vercel.app). O rodape ja traz os quatro links das paginas institucionais. Publique como pagina inicial.
 
@@ -126,6 +126,12 @@
 #tdx-site ul,#tdx-site ol{list-style:none;margin:0;padding:0}
 #tdx-site a{text-decoration:none}
 #tdx-site img{max-width:100%;height:auto;display:block}
+
+/* Esconde a barra de admin do WP (so aparece para usuario logado).
+   Regras globais de proposito: #wpadminbar vive fora do bloco. */
+#wpadminbar{display:none !important}
+html{margin-top:0 !important}
+html.wp-toolbar{padding-top:0 !important}
 
 </style>
 

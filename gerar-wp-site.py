@@ -77,7 +77,13 @@ REFORCO = f"""
 {ESCOPO} a{{text-decoration:none}}
 {ESCOPO} img{{max-width:100%;height:auto;display:block}}
 """
-css = css + REFORCO
+css = css + REFORCO + """
+/* Esconde a barra de admin do WP (so aparece para usuario logado).
+   Regras globais de proposito: #wpadminbar vive fora do bloco. */
+#wpadminbar{display:none !important}
+html{margin-top:0 !important}
+html.wp-toolbar{padding-top:0 !important}
+"""
 
 saida = f"""<!-- ============================================================
      TADEX - SITE OFICIAL para WordPress (widget HTML do Elementor)
