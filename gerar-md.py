@@ -14,19 +14,17 @@ DEST = BASE / "wp-md"
 DEST.mkdir(exist_ok=True)
 
 # ordem, arquivo de origem, nome do .md, titulo da pagina no WP, slug, observacao
+# A landing page fica de fora: ja esta publicada e no ar.
 PAGINAS = [
-    (1, "landingpage-wp-1bloco.html", "1-site-landing-page",
-     "TADEX Transportes", "/",
-     "Pagina principal. Se ja estiver publicada no WP, so substitua o conteudo do widget."),
-    (2, "wp-contato.html", "2-fale-conosco",
+    (1, "wp-contato.html", "1-fale-conosco",
      "Fale Conosco", "/fale-conosco",
      "Tem formulario: o bloco inclui um <script> no fim. Cole tudo, inclusive o script."),
-    (3, "wp-privacidade.html", "3-politica-de-privacidade",
+    (2, "wp-privacidade.html", "2-politica-de-privacidade",
      "Politica de Privacidade", "/politica-de-privacidade",
      "Este e o link que voce informa no Meta Ads, no Google e nos formularios de lead."),
-    (4, "wp-termos.html", "4-termos-de-uso",
+    (3, "wp-termos.html", "3-termos-de-uso",
      "Termos de Uso", "/termos-de-uso", ""),
-    (5, "wp-coleta.html", "5-condicoes-de-coleta",
+    (4, "wp-coleta.html", "4-condicoes-de-coleta",
      "Condicoes para Solicitacao de Coleta", "/condicoes-de-coleta",
      "O site antigo usava /coleta. Se quiser preservar o link antigo, use esse slug."),
 ]
@@ -82,10 +80,12 @@ for ordem, origem, nome_md, titulo, slug, obs in PAGINAS:
     linhas_indice.append(f"| {ordem} | [{titulo}]({nome_md}.md) | `{slug}` | {kb} KB |")
     print(f"gerado: wp-md/{nome_md}.md  ({kb} KB)")
 
-indice = f"""# TADEX · páginas para o WordPress
+indice = f"""# TADEX · páginas institucionais para o WordPress
 
-Cinco páginas, uma por arquivo. Abra o `.md`, copie o bloco de código inteiro
-e cole num bloco HTML do WordPress.
+Quatro páginas novas, uma por arquivo. Abra o `.md`, copie o bloco de código
+inteiro e cole num bloco HTML do WordPress.
+
+A landing page não está aqui: ela já está publicada e no ar.
 
 | # | Página | Slug | Tamanho |
 |---|---|---|---|
@@ -94,7 +94,7 @@ e cole num bloco HTML do WordPress.
 {COMO}
 ---
 
-## Depois de publicar as cinco
+## Depois de publicar as quatro
 
 Aponte o menu e o rodapé do tema para os novos slugs. Os links **dentro** dos
 blocos já estão apontando para eles, então basta os slugs baterem com a tabela

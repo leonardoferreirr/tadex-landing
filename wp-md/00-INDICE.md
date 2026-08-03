@@ -1,15 +1,16 @@
-# TADEX · páginas para o WordPress
+# TADEX · páginas institucionais para o WordPress
 
-Cinco páginas, uma por arquivo. Abra o `.md`, copie o bloco de código inteiro
-e cole num bloco HTML do WordPress.
+Quatro páginas novas, uma por arquivo. Abra o `.md`, copie o bloco de código
+inteiro e cole num bloco HTML do WordPress.
+
+A landing page não está aqui: ela já está publicada e no ar.
 
 | # | Página | Slug | Tamanho |
 |---|---|---|---|
-| 1 | [TADEX Transportes](1-site-landing-page.md) | `/` | 28 KB |
-| 2 | [Fale Conosco](2-fale-conosco.md) | `/fale-conosco` | 14 KB |
-| 3 | [Politica de Privacidade](3-politica-de-privacidade.md) | `/politica-de-privacidade` | 15 KB |
-| 4 | [Termos de Uso](4-termos-de-uso.md) | `/termos-de-uso` | 24 KB |
-| 5 | [Condicoes para Solicitacao de Coleta](5-condicoes-de-coleta.md) | `/condicoes-de-coleta` | 14 KB |
+| 1 | [Fale Conosco](1-fale-conosco.md) | `/fale-conosco` | 14 KB |
+| 2 | [Politica de Privacidade](2-politica-de-privacidade.md) | `/politica-de-privacidade` | 15 KB |
+| 3 | [Termos de Uso](3-termos-de-uso.md) | `/termos-de-uso` | 24 KB |
+| 4 | [Condicoes para Solicitacao de Coleta](4-condicoes-de-coleta.md) | `/condicoes-de-coleta` | 14 KB |
 
 ## Como colar no WordPress
 
@@ -26,7 +27,7 @@ e cole num bloco HTML do WordPress.
 
 ---
 
-## Depois de publicar as cinco
+## Depois de publicar as quatro
 
 Aponte o menu e o rodapé do tema para os novos slugs. Os links **dentro** dos
 blocos já estão apontando para eles, então basta os slugs baterem com a tabela
