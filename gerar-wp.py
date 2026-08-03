@@ -176,6 +176,12 @@ for nome, slug in PAGINAS.items():
     bloco = reescrever_links(extrair(html))
     js = script_form(html)
 
+    # O bloco ja mostra o titulo no hero. Sem isso, o tema imprime o titulo da
+    # pagina logo acima e o visitante ve o mesmo texto duas vezes.
+    esconde_titulo = """
+/* esconde o titulo que o tema imprime: o hero abaixo ja mostra ele */
+.entry-title,.page-header,.page-title{display:none !important}"""
+
     saida = f"""<!-- ============================================================
      TADEX - {nome.upper()} para WordPress (widget HTML do Elementor)
      Bloco unico, CSS inline e escopado em #tdx-legal.
@@ -185,6 +191,7 @@ for nome, slug in PAGINAS.items():
      ============================================================ -->
 <style id="tdx-legal-css">
 {FONTES}
+{esconde_titulo}
 {CSS.strip()}
 </style>
 

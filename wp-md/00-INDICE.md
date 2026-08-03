@@ -11,7 +11,7 @@ A landing page não está aqui: ela já está publicada e no ar.
 | 1 | [Fale Conosco](1-fale-conosco.md) | `/fale-conosco` | 14 KB |
 | 2 | [Politica de Privacidade](2-politica-de-privacidade.md) | `/politica-de-privacidade` | 15 KB |
 | 3 | [Termos de Uso](3-termos-de-uso.md) | `/termos-de-uso` | 24 KB |
-| 4 | [Condicoes para Solicitacao de Coleta](4-condicoes-de-coleta.md) | `/condicoes-de-coleta` | 14 KB |
+| 4 | [Condicoes para Solicitacao de Coleta](4-condicoes-de-coleta.md) | `/condicoes-de-coleta` | 15 KB |
 
 ## Como colar no WordPress
 

@@ -5,7 +5,7 @@
 | **Título da página** | Condicoes para Solicitacao de Coleta |
 | **Slug** | `/condicoes-de-coleta` |
 | **Origem** | `wp-coleta.html` |
-| **Tamanho** | 14 KB |
+| **Tamanho** | 15 KB |
 
 > **Atenção:** O site antigo usava /coleta. Se quiser preservar o link antigo, use esse slug.
 
@@ -37,6 +37,9 @@
 <style id="tdx-legal-css">
 @font-face{font-family:'TDX Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-400.woff2) format('woff2')}
 @font-face{font-family:'TDX Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-700.woff2) format('woff2')}
+
+/* esconde o titulo que o tema imprime: o hero abaixo ja mostra ele */
+.entry-title,.page-header,.page-title{display:none !important}
 #tdx-legal{--o:#f54900;--o6:#d93f00;--o1:#fdede4;--navy:#081027;--hero:#08111d;
   --cream:#faf1ec;--wa:#37b34a;--wa6:#2e9a3f;--gray:#E4E7EC;--r:16px;--rlg:22px;
   --ease:cubic-bezier(.22,.61,.36,1);
