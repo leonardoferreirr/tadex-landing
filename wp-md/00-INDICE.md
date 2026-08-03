@@ -1,12 +1,13 @@
-# TADEX · páginas institucionais para o WordPress
+# TADEX · páginas para o WordPress
 
-Quatro páginas novas, uma por arquivo. Abra o `.md`, copie o bloco de código
+O site oficial mais as quatro páginas institucionais, uma por arquivo. Abra o `.md`, copie o bloco de código
 inteiro e cole num bloco HTML do WordPress.
 
 A landing page não está aqui: ela já está publicada e no ar.
 
 | # | Página | Slug | Tamanho |
 |---|---|---|---|
+| 0 | [TADEX Transportes](0-site-oficial.md) | `/` | 55 KB |
 | 1 | [Fale Conosco](1-fale-conosco.md) | `/fale-conosco` | 14 KB |
 | 2 | [Politica de Privacidade](2-politica-de-privacidade.md) | `/politica-de-privacidade` | 15 KB |
 | 3 | [Termos de Uso](3-termos-de-uso.md) | `/termos-de-uso` | 24 KB |
@@ -27,7 +28,7 @@ A landing page não está aqui: ela já está publicada e no ar.
 
 ---
 
-## Depois de publicar as quatro
+## Depois de publicar
 
 Aponte o menu e o rodapé do tema para os novos slugs. Os links **dentro** dos
 blocos já estão apontando para eles, então basta os slugs baterem com a tabela
