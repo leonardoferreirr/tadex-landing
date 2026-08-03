@@ -179,8 +179,15 @@ for nome, slug in PAGINAS.items():
     # O bloco ja mostra o titulo no hero. Sem isso, o tema imprime o titulo da
     # pagina logo acima e o visitante ve o mesmo texto duas vezes.
     esconde_titulo = """
-/* esconde o titulo que o tema imprime: o hero abaixo ja mostra ele */
-.entry-title,.page-header,.page-title{display:none !important}"""
+/* Esconde o titulo que o tema imprime: o hero abaixo ja mostra ele.
+   A ultima regra cobre o widget "Titulo da pagina" do Elementor, que fica
+   dentro do cabecalho global e monta aquela faixa preta com o nome da pagina. */
+.entry-title,.page-header,.page-title{display:none !important}
+.elementor-widget-theme-page-title{display:none !important}
+/* a faixa preta inteira do cabecalho, nao so o texto dentro dela:
+   escondendo so o texto sobra uma barra vazia de 170px */
+.elementor-location-header .elementor-section:has(.elementor-widget-theme-page-title){display:none !important}
+.elementor-element-1470c8b4{display:none !important}"""
 
     saida = f"""<!-- ============================================================
      TADEX - {nome.upper()} para WordPress (widget HTML do Elementor)
