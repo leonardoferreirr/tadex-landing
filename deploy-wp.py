@@ -44,14 +44,14 @@ PAGINAS = {
     "site":        ("wp-site.html",        "TADEX Transportes",
                     "home",                    "elementor_canvas",        14),
     "contato":     ("wp-contato.html",     "Fale Conosco",
-                    "fale-conosco",            "elementor_header_footer", 1285),
+                    "fale-conosco",            "elementor_canvas",        1285),
     "privacidade": ("wp-privacidade.html", "Política de Privacidade",
-                    "politica-de-privacidade", "elementor_header_footer", 1303),
+                    "politica-de-privacidade", "elementor_canvas",        1303),
     "termos":      ("wp-termos.html",      "Termos de Uso",
-                    "termos-de-uso",           "elementor_header_footer", 1305),
-    # slug 'coleta' de proposito: e o que o site antigo ja usa e tem link externo
+                    "termos-de-uso",           "elementor_canvas",        1305),
+    # slug 'coleta': o que o site antigo ja usava, ha links externos apontando
     "coleta":      ("wp-coleta.html",      "Condições para Solicitação de Coleta",
-                    "coleta",                  "elementor_header_footer", 1797),
+                    "coleta",                  "elementor_canvas",        1797),
 }
 
 
@@ -101,25 +101,32 @@ def publicar(cred, alvos, executar):
         html = caminho.read_text(encoding="utf-8").strip()
         conteudo = f"<!-- wp:html -->\n{html}\n<!-- /wp:html -->"
 
+        ja_criada = novas.get(chave)
         print(f"  {chave}")
-        print(f"    1. pagina {id_antiga} vira rascunho, slug '{slug}-antiga'")
-        print(f"    2. cria pagina nova, slug '/{slug}', template {template}, {len(html)//1024} KB")
-        if chave == "site":
-            print(f"    3. define a nova como pagina inicial do site")
+        if ja_criada:
+            print(f"    ATUALIZA pagina {ja_criada['id']} ja criada, template {template}, {len(html)//1024} KB")
+        else:
+            print(f"    1. cria pagina nova, slug '/{slug}', template {template}, {len(html)//1024} KB")
+            if chave == "site":
+                print(f"    2. define a nova como pagina inicial do site")
+            print(f"    {'3' if chave == 'site' else '2'}. pagina antiga {id_antiga} vira rascunho, slug '{slug}-antiga'")
 
         if not executar:
             print()
             continue
 
-        # 1. libera o slug, preservando a antiga como rascunho
-        api(cred, f"pages/{id_antiga}", "POST",
-            {"slug": f"{slug}-antiga", "status": "draft"})
-
-        # 2. cria a nova, limpa, sem Elementor
-        nova = api(cred, "pages", "POST", {
-            "title": titulo, "slug": slug, "content": conteudo,
-            "status": "publish", "template": template,
-        })
+        if ja_criada:
+            nova = api(cred, f"pages/{ja_criada['id']}", "POST", {
+                "title": titulo, "slug": slug, "content": conteudo,
+                "status": "publish", "template": template,
+            })
+        else:
+            # cria primeiro; o slug desejado pode sair com sufixo ate a antiga
+            # ser arquivada, entao corrige o slug depois de liberar
+            nova = api(cred, "pages", "POST", {
+                "title": titulo, "content": conteudo,
+                "status": "publish", "template": template,
+            })
         novas[chave] = {"id": nova["id"], "link": nova["link"]}
         print(f"    -> criada: {nova['link']}  (id {nova['id']})")
 
@@ -131,19 +138,25 @@ def publicar(cred, alvos, executar):
         if "<style" in html and "<style" not in bruto:
             print("    AVISO: o <style> foi removido. Falta unfiltered_html.")
 
-        # 3. a home passa a apontar para a nova
-        if chave == "site":
-            token = base64.b64encode(f"{cred['user']}:{cred['pass']}".encode()).decode()
-            req = urllib.request.Request(
-                f"{cred['url']}/wp-json/wp/v2/settings", method="POST",
-                data=json.dumps({"show_on_front": "page",
-                                 "page_on_front": nova["id"]}).encode(),
-                headers={"Authorization": f"Basic {token}",
-                         "Content-Type": "application/json",
-                         "User-Agent": "tadex-deploy"})
-            with urllib.request.urlopen(req, timeout=60) as r:
-                s = json.loads(r.read().decode())
-            print(f"    -> pagina inicial agora e a {s.get('page_on_front')}")
+        if not ja_criada:
+            # aponta a home ANTES de arquivar a antiga, sem janela sem front page
+            if chave == "site":
+                token = base64.b64encode(f"{cred['user']}:{cred['pass']}".encode()).decode()
+                req = urllib.request.Request(
+                    f"{cred['url']}/wp-json/wp/v2/settings", method="POST",
+                    data=json.dumps({"show_on_front": "page",
+                                     "page_on_front": nova["id"]}).encode(),
+                    headers={"Authorization": f"Basic {token}",
+                             "Content-Type": "application/json",
+                             "User-Agent": "tadex-deploy"})
+                urllib.request.urlopen(req, timeout=60)
+                print(f"    -> pagina inicial agora e a {nova['id']}")
+            # arquiva a antiga e assume o slug definitivo
+            api(cred, f"pages/{id_antiga}", "POST",
+                {"slug": f"{slug}-antiga", "status": "draft"})
+            nova = api(cred, f"pages/{nova['id']}", "POST", {"slug": slug})
+            print(f"    -> slug definitivo: /{nova['slug']}")
+
         print()
 
     if executar:

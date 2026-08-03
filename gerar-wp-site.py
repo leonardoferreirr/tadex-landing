@@ -13,6 +13,8 @@ Uso:  python3 gerar-wp-site.py
 import re
 import pathlib
 
+from wp_comum import absolutizar as _abs, escopar_css as _esc
+
 BASE = pathlib.Path(__file__).parent
 CDN = "https://tadex.vercel.app"
 ESCOPO = "#tdx-site"
@@ -21,103 +23,15 @@ ESCOPO = "#tdx-site"
 SLUGS = {
     "privacidade": "/politica-de-privacidade",
     "termos":      "/termos-de-uso",
-    "coleta":      "/condicoes-de-coleta",
+    "coleta":      "/coleta",
     "contato":     "/fale-conosco",
 }
-
-
-# ----------------------------------------------------------------- CSS
-
-def dividir_seletores(lista):
-    """Split por virgula respeitando parenteses de :is(), :not() etc."""
-    partes, atual, nivel = [], "", 0
-    for ch in lista:
-        if ch == "(":
-            nivel += 1
-        elif ch == ")":
-            nivel -= 1
-        if ch == "," and nivel == 0:
-            partes.append(atual)
-            atual = ""
-        else:
-            atual += ch
-    partes.append(atual)
-    return [p.strip() for p in partes if p.strip()]
-
-
-def prefixar(sel):
-    """Prefixa um seletor com o escopo, tratando os casos globais."""
-    s = sel.strip()
-    if not s:
-        return s
-    if s in (":root", "html", "body"):
-        return ESCOPO
-    if s == "*":
-        return f"{ESCOPO} *"
-    if s.startswith("*::") or s.startswith("*:"):
-        return f"{ESCOPO} {s}"
-    # body.algo / html.algo viram #tdx-site.algo
-    for tag in ("body", "html"):
-        if s.startswith(tag) and len(s) > len(tag) and s[len(tag)] in ".:[":
-            return ESCOPO + s[len(tag):]
-    return f"{ESCOPO} {s}"
-
-
-def escopar_css(css):
-    """Percorre o CSS e prefixa os seletores, preservando as at-rules.
-
-    Os comentarios sao removidos antes: se um deles ficar entre o fim de uma
-    regra e o seletor seguinte, ele entra no cabecalho e invalida a regra
-    inteira ("#tdx-site /* ... */ .footer{...}" nao casa com nada).
-    """
-    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
-    saida, i, n = [], 0, len(css)
-    while i < n:
-        # acha o proximo '{' ou ';' de topo
-        j = i
-        while j < n and css[j] not in "{;":
-            j += 1
-        if j >= n:
-            saida.append(css[i:])
-            break
-
-        if css[j] == ";":                    # at-rule sem corpo (@import, @charset)
-            saida.append(css[i:j + 1])
-            i = j + 1
-            continue
-
-        cabecalho = css[i:j].strip()
-
-        # acha o '}' correspondente
-        nivel, k = 1, j + 1
-        while k < n and nivel:
-            if css[k] == "{":
-                nivel += 1
-            elif css[k] == "}":
-                nivel -= 1
-            k += 1
-        corpo = css[j + 1:k - 1]
-
-        low = cabecalho.lower()
-        if low.startswith("@font-face") or low.startswith("@keyframes") or low.startswith("@-"):
-            saida.append(f"{cabecalho}{{{corpo}}}")          # preserva intacto
-        elif low.startswith("@media") or low.startswith("@supports"):
-            saida.append(f"{cabecalho}{{{escopar_css(corpo)}}}")   # recursivo
-        else:
-            novos = ",".join(prefixar(s) for s in dividir_seletores(cabecalho))
-            saida.append(f"{novos}{{{corpo}}}")
-
-        i = k
-    return "".join(saida)
 
 
 # ----------------------------------------------------------------- HTML
 
 def absolutizar(texto):
-    """assets/x.webp -> https://tadex.vercel.app/assets/x.webp"""
-    texto = re.sub(r'(src|href)="assets/', rf'\1="{CDN}/assets/', texto)
-    texto = re.sub(r'url\((assets/)', rf'url({CDN}/assets/', texto)
-    return texto
+    return _abs(texto)
 
 
 def trocar_links(html):
@@ -144,7 +58,7 @@ corpo = trocar_links(absolutizar(corpo)).strip()
 # css: escopado, com a fonte renomeada para nao brigar com a do tema
 css = absolutizar(css)
 css = css.replace("'Poppins'", "'TDX Poppins'")
-css = escopar_css(css)
+css = _esc(css, ESCOPO)
 
 # js: as buscas passam a partir do container, nao do document
 js = js.replace("document.querySelector(", "ROOT.querySelector(")
