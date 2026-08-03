@@ -25,6 +25,7 @@ SLUGS = {
     "termos":      "/termos-de-uso",
     "coleta":      "/coleta",
     "contato":     "/fale-conosco",
+    "condicoes":   "/condicoes",
 }
 
 

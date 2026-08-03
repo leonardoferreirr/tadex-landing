@@ -52,6 +52,9 @@ PAGINAS = {
     # slug 'coleta': o que o site antigo ja usava, ha links externos apontando
     "coleta":      ("wp-coleta.html",      "Condições para Solicitação de Coleta",
                     "coleta",                  "elementor_canvas",        1797),
+    # idem para 'condicoes': substitui a pagina antiga 1711 no mesmo slug
+    "condicoes":   ("wp-condicoes.html",   "Condições Gerais de Prestação de Serviço",
+                    "condicoes",               "elementor_canvas",        1711),
 }
 
 

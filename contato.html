@@ -105,11 +105,11 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn--wa">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.4-.1-.6.1l-.9 1c-.1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5v-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3.4 3.4 0 0 0-1 2.5A5.9 5.9 0 0 0 7.6 12a13.4 13.4 0 0 0 5.2 4.6c1.9.7 2.3.6 2.7.6.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.2-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-          Enviar mensagem pelo WhatsApp
+        <button type="submit" class="btn btn--primary" id="btnEnviar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          Enviar mensagem
         </button>
-        <p class="form-wa__hint">Ao enviar, sua mensagem é montada e aberta no WhatsApp da unidade escolhida, para o atendimento começar na hora. Seus dados são tratados conforme a nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
+        <p class="form-wa__hint" id="formHint">Sua mensagem vai direto para o e-mail da nossa equipe, que retorna em horário comercial. Seus dados são tratados conforme a nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
       </form>
 
     </div>
@@ -144,7 +144,7 @@
       <a href="coleta.html">Condições para Solicitação de Coleta</a>
       <a href="privacidade.html">Política de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
-      <a href="https://www.tadex.com.br/condicoes/" target="_blank" rel="noopener">Condições Gerais de Prestação de Serviços</a>
+      <a href="condicoes.html">Condições Gerais de Prestação de Serviço</a>
       <a href="https://www.tadex.com.br/isencaotadex/" target="_blank" rel="noopener">Carta de Isenção de Responsabilidade</a>
       <a href="https://files.tadex.com.br/modelo-declaracao-de-transporte.docx" target="_blank" rel="noopener">Modelo de Declaração de Conteúdo</a>
       <a href="https://apps.tadex.com.br/Publica/Rastreamento/Parceiro" target="_blank" rel="noopener">Rastreamento de Parceiros</a>
@@ -157,26 +157,57 @@
 (function(){
   var f = document.getElementById('formContato');
   if(!f) return;
+  var DESTINO = 'tadex@tadex.com.br';
+
+  function corpo(){
+    var unidade = f.unidade.options[f.unidade.selectedIndex].text;
+    return 'Nome: ' + f.nome.value.trim()
+      + '\nE-mail: ' + f.email.value.trim()
+      + '\nTelefone: ' + f.telefone.value.trim()
+      + '\nUnidade de preferência: ' + unidade
+      + '\n\nMensagem:\n' + f.mensagem.value.trim();
+  }
+
   f.addEventListener('submit', function(e){
     e.preventDefault();
-    var nome = f.nome.value.trim(),
-        email = f.email.value.trim(),
-        tel = f.telefone.value.trim(),
-        msg = f.mensagem.value.trim(),
-        num = f.unidade.value;
-
-    if(!nome || !email || !tel || !msg){
+    if(!f.nome.value.trim() || !f.email.value.trim() || !f.telefone.value.trim() || !f.mensagem.value.trim()){
       f.reportValidity();
       return;
     }
+    var btn = document.getElementById('btnEnviar');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
 
-    var texto = 'Olá! Vim pelo site da TADEX.\n\n'
-      + 'Nome: ' + nome + '\n'
-      + 'E-mail: ' + email + '\n'
-      + 'Telefone: ' + tel + '\n\n'
-      + 'Mensagem:\n' + msg;
-
-    window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+    fetch('https://formsubmit.co/ajax/' + DESTINO, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        _subject: 'Contato pelo site TADEX — ' + f.nome.value.trim(),
+        _template: 'table',
+        _captcha: 'false',
+        Nome: f.nome.value.trim(),
+        Email: f.email.value.trim(),
+        Telefone: f.telefone.value.trim(),
+        Unidade: f.unidade.options[f.unidade.selectedIndex].text,
+        Mensagem: f.mensagem.value.trim()
+      })
+    }).then(function(r){ return r.json(); }).then(function(res){
+      if(res && (res.success === 'true' || res.success === true)){
+        f.reset();
+        btn.textContent = 'Mensagem enviada!';
+        document.getElementById('formHint').textContent =
+          'Recebemos a sua mensagem. Nossa equipe retorna em horário comercial.';
+      } else {
+        throw new Error('fallback');
+      }
+    }).catch(function(){
+      // servico indisponivel: abre o e-mail do visitante ja preenchido
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+      window.location.href = 'mailto:' + DESTINO
+        + '?subject=' + encodeURIComponent('Contato pelo site TADEX')
+        + '&body=' + encodeURIComponent(corpo());
+    });
   });
 })();
 </script>

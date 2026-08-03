@@ -25,6 +25,7 @@ SLUGS = {
     "termos":      "/termos-de-uso",
     "coleta":      "/coleta",
     "contato":     "/fale-conosco",
+    "condicoes":   "/condicoes",
 }
 
 FONTES = f"""@font-face{{font-family:'TDX Poppins';font-style:normal;font-weight:400;font-display:swap;src:url({CDN}/assets/poppins-400.woff2) format('woff2')}}

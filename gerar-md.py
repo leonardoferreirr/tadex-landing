@@ -28,7 +28,10 @@ PAGINAS = [
      "Este e o link que voce informa no Meta Ads, no Google e nos formularios de lead."),
     (3, "wp-termos.html", "3-termos-de-uso",
      "Termos de Uso", "/termos-de-uso", ""),
-    (4, "wp-coleta.html", "4-condicoes-de-coleta",
+    (4, "wp-condicoes.html", "4-condicoes-gerais",
+     "Condicoes Gerais de Prestacao de Servico", "/condicoes",
+     "Substitui a pagina antiga /condicoes, mesmo slug."),
+    (5, "wp-coleta.html", "5-condicoes-de-coleta",
      "Condicoes para Solicitacao de Coleta", "/condicoes-de-coleta",
      "O site antigo usava /coleta. Se quiser preservar o link antigo, use esse slug."),
 ]

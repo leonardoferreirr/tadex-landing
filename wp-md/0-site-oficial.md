@@ -5,7 +5,7 @@
 | **Título da página** | TADEX Transportes |
 | **Slug** | `/` |
 | **Origem** | `wp-site.html` |
-| **Tamanho** | 56 KB |
+| **Tamanho** | 55 KB |
 
 > **Atenção:** E o site de hoje (tadex.vercel.app). O rodape ja traz os quatro links das paginas institucionais. Publique como pagina inicial.
 
@@ -423,7 +423,7 @@ html.wp-toolbar{padding-top:0 !important}
       <a href="/coleta">Condições para Solicitação de Coleta</a>
       <a href="/politica-de-privacidade">Política de Privacidade</a>
       <a href="/termos-de-uso">Termos de Uso</a>
-      <a href="https://www.tadex.com.br/condicoes/" target="_blank" rel="noopener">Condições Gerais de Prestação de Serviços</a>
+      <a href="/condicoes">Condições Gerais de Prestação de Serviço</a>
       <a href="https://www.tadex.com.br/isencaotadex/" target="_blank" rel="noopener">Carta de Isenção de Responsabilidade</a>
       <a href="https://files.tadex.com.br/modelo-declaracao-de-transporte.docx" target="_blank" rel="noopener">Modelo de Declaração de Conteúdo</a>
       <a href="https://apps.tadex.com.br/Publica/Rastreamento/Parceiro" target="_blank" rel="noopener">Rastreamento de Parceiros</a>
