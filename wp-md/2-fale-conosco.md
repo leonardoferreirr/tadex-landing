@@ -1,0 +1,278 @@
+# Fale Conosco
+
+| | |
+|---|---|
+| **Título da página** | Fale Conosco |
+| **Slug** | `/fale-conosco` |
+| **Origem** | `wp-contato.html` |
+| **Tamanho** | 14 KB |
+
+> **Atenção:** Tem formulario: o bloco inclui um <script> no fim. Cole tudo, inclusive o script.
+
+## Como colar no WordPress
+
+1. **Páginas → Adicionar nova**
+2. Em **Título**, use o título indicado abaixo
+3. Adicione um bloco **HTML personalizado** (ou, no Elementor, o widget **HTML**)
+4. Copie **todo** o conteúdo do bloco de código desta página e cole dentro dele
+5. Em **Configurações → Link permanente**, ajuste o slug para o indicado
+6. Publique
+
+> Cole o bloco inteiro, do primeiro `<!--` até a última linha. O CSS vai junto,
+> escopado em `#tdx-legal`, então ele não vaza para o resto do site nem sofre
+> interferência do tema.
+
+---
+
+## Conteúdo para colar
+
+```html
+<!-- ============================================================
+     TADEX - CONTATO para WordPress (widget HTML do Elementor)
+     Bloco unico, CSS inline e escopado em #tdx-legal.
+     Slug sugerido da pagina: /fale-conosco
+     Gerado por gerar-wp.py, nao edite este arquivo na mao.
+     Edite contato.html e rode: python3 gerar-wp.py
+     ============================================================ -->
+<style id="tdx-legal-css">
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-400.woff2) format('woff2')}
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-700.woff2) format('woff2')}
+#tdx-legal{--o:#f54900;--o6:#d93f00;--o1:#fdede4;--navy:#081027;--hero:#08111d;
+  --cream:#faf1ec;--wa:#37b34a;--wa6:#2e9a3f;--gray:#E4E7EC;--r:16px;--rlg:22px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased}
+/* Forca a fonte e a cor em TODO descendente: temas do WP costumam ter
+   regras proprias para h1/h2/h3/a que vencem a simples heranca do container. */
+#tdx-legal *,#tdx-legal *::before,#tdx-legal *::after{
+  box-sizing:border-box;font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+#tdx-legal h1,#tdx-legal h2,#tdx-legal h3,#tdx-legal h4{color:var(--navy);font-weight:700;text-transform:none}
+#tdx-legal .legal-hero h1,#tdx-legal .legal-hero p{color:#fff}
+#tdx-legal h1,#tdx-legal h2,#tdx-legal h3,#tdx-legal p{margin:0}
+#tdx-legal img{max-width:100%;display:block}
+#tdx-legal a{color:inherit}
+#tdx-legal .container{width:100%;max-width:1200px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+
+#tdx-legal .legal-hero{background:var(--hero);color:#fff;padding-block:clamp(40px,6vw,72px);
+  border-bottom:4px solid var(--o);position:relative;overflow:hidden}
+#tdx-legal .legal-hero::after{content:"";position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,73,0,.20),transparent 68%);pointer-events:none}
+#tdx-legal .legal-hero h1{font-size:clamp(1.85rem,4.4vw,3rem);line-height:1.14;
+  letter-spacing:-.02em;position:relative;z-index:1;color:#fff}
+#tdx-legal .legal-hero p{margin-top:12px;color:rgba(255,255,255,.72) !important;max-width:60ch;position:relative;z-index:1}
+
+#tdx-legal .legal{padding-block:clamp(40px,6vw,72px);background:#fff}
+#tdx-legal .legal .container{display:grid;grid-template-columns:230px minmax(0,1fr);
+  gap:clamp(32px,5vw,64px);align-items:start}
+#tdx-legal .legal--full .container{grid-template-columns:minmax(0,1fr)}
+#tdx-legal .legal--full .legal__body{max-width:none}
+#tdx-legal .legal__body{max-width:78ch;min-width:0}
+#tdx-legal .legal__meta{display:inline-block;background:var(--o1);color:var(--o6);
+  font-size:.83rem;font-weight:700;padding:.45em 1em;border-radius:999px;margin-bottom:28px}
+#tdx-legal .legal__body h2{font-size:clamp(1.12rem,2.1vw,1.4rem);line-height:1.3;
+  margin:38px 0 12px;scroll-margin-top:24px;letter-spacing:-.01em;color:var(--navy)}
+#tdx-legal .legal__body h2:first-of-type{margin-top:0}
+#tdx-legal .legal__body h3{font-size:1.02rem;margin:26px 0 10px;color:var(--navy);scroll-margin-top:24px}
+#tdx-legal .legal__body p{margin-bottom:14px;color:#3d4658}
+#tdx-legal .legal__body ul,#tdx-legal .legal__body ol{margin:0 0 18px;padding-left:22px;color:#3d4658}
+#tdx-legal .legal__body ul{list-style:disc}
+#tdx-legal .legal__body ol{list-style:decimal}
+#tdx-legal .legal__body li{margin-bottom:9px;padding-left:4px}
+#tdx-legal .legal__body li::marker{color:var(--o);font-weight:700}
+#tdx-legal .legal__body strong{color:var(--navy);font-weight:700}
+#tdx-legal .legal__body a:not(.btn){color:var(--o6);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1.5px}
+#tdx-legal .legal__body a:not(.btn):hover{color:var(--o)}
+
+#tdx-legal .legal-toc{position:sticky;top:24px}
+#tdx-legal .legal-toc h2{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#7a8496;margin-bottom:14px;font-weight:700}
+#tdx-legal .legal-toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--gray)}
+#tdx-legal .legal-toc a{display:block;padding:7px 0 7px 16px;margin-left:-2px;font-size:.88rem;
+  color:#5b6478;line-height:1.35;border-left:2px solid transparent;
+  text-decoration:none;transition:color .2s,border-color .2s}
+#tdx-legal .legal-toc a:hover{color:var(--o6);border-left-color:var(--o)}
+
+#tdx-legal .legal-note{background:var(--cream);border-left:4px solid var(--o);
+  border-radius:0 var(--r) var(--r) 0;padding:clamp(20px,3vw,28px);margin:28px 0}
+#tdx-legal .legal-note h3{margin-top:0}
+#tdx-legal .legal-note p:last-child{margin-bottom:0}
+#tdx-legal .legal-alert{background:#fff4ef;border:2px solid var(--o);border-radius:var(--r);
+  padding:clamp(18px,2.6vw,24px);margin-bottom:32px}
+#tdx-legal .legal-alert p{margin:0;color:var(--navy);font-weight:700}
+
+#tdx-legal .contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;margin-bottom:36px}
+#tdx-legal .contato-card{background:#fff;border:1px solid var(--gray);border-radius:var(--rlg);
+  padding:clamp(22px,3vw,30px);box-shadow:0 2px 8px rgba(8,16,39,.06);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+#tdx-legal .contato-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,16,39,.10)}
+#tdx-legal .contato-card__tag{display:inline-block;background:var(--o1);color:var(--o6);
+  font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:.4em .9em;border-radius:999px;margin-bottom:14px}
+#tdx-legal .contato-card h3{font-size:1.1rem;margin:0 0 10px}
+#tdx-legal .contato-card address{font-style:normal;color:#3d4658;line-height:1.65;margin-bottom:16px}
+#tdx-legal .contato-card__list{display:grid;gap:9px;list-style:none;margin:0;padding:0}
+#tdx-legal .contato-card__list li{display:flex;align-items:center;gap:.6em;color:#3d4658;font-size:.95rem}
+#tdx-legal .contato-card__list svg{width:17px;height:17px;flex:none;color:var(--o)}
+
+#tdx-legal .form-wa{background:var(--cream);border-radius:var(--rlg);padding:clamp(24px,3.4vw,36px)}
+#tdx-legal .form-wa h2{margin-top:0}
+#tdx-legal .form-wa__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;margin:16px 0}
+#tdx-legal .form-wa__field{display:flex;flex-direction:column;gap:7px}
+#tdx-legal .form-wa__field--full{grid-column:1/-1}
+#tdx-legal .form-wa label{font-size:.88rem;font-weight:700;color:var(--navy)}
+#tdx-legal .form-wa input,#tdx-legal .form-wa textarea,#tdx-legal .form-wa select{
+  font-family:inherit;font-size:.97rem;color:var(--navy);background:#fff;
+  border:1.5px solid var(--gray);border-radius:12px;padding:.78em 1em;width:100%;
+  transition:border-color .2s,box-shadow .2s}
+#tdx-legal .form-wa textarea{resize:vertical;min-height:118px}
+#tdx-legal .form-wa input:focus,#tdx-legal .form-wa textarea:focus,#tdx-legal .form-wa select:focus{
+  outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(245,73,0,.13)}
+#tdx-legal .form-wa__hint{font-size:.85rem;color:#6b7383;margin-top:14px}
+#tdx-legal .btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:.98rem;
+  padding:.85em 1.6em;border-radius:999px;border:2px solid transparent;cursor:pointer;
+  font-family:inherit;text-decoration:none;
+  transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+#tdx-legal .btn svg{width:1.15em;height:1.15em;flex:none}
+#tdx-legal .btn--wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(55,179,74,.26)}
+#tdx-legal .btn--wa:hover{background:var(--wa6);transform:translateY(-2px)}
+
+@media(max-width:900px){
+  #tdx-legal .legal .container{grid-template-columns:1fr}
+  #tdx-legal .legal-toc{position:static;order:-1;background:var(--cream);border-radius:var(--r);padding:20px 22px}
+  #tdx-legal .legal-toc ol{columns:2;column-gap:24px;border-left:0}
+  #tdx-legal .legal-toc a{padding-left:0;border-left:0}
+}
+@media(max-width:560px){#tdx-legal .legal-toc ol{columns:1}}
+@media(prefers-reduced-motion:reduce){
+  #tdx-legal .contato-card{transition:none}
+  #tdx-legal .contato-card:hover{transform:none}
+}
+</style>
+
+<div id="tdx-legal">
+<section class="legal-hero">
+  <div class="container">
+    <h1>Fale Conosco</h1>
+    <p>Deseja obter informações sobre nossos serviços ou falar com um de nossos especialistas?</p>
+  </div>
+</section>
+<main class="legal legal--full">
+  <div class="container">
+    <div class="legal__body">
+
+      <h2 style="margin-top:0">Onde estamos</h2>
+
+      <div class="contato-grid">
+        <div class="contato-card">
+          <span class="contato-card__tag">Sede Administrativa</span>
+          <h3>São José dos Campos, SP</h3>
+          <address>
+            Av. Dr. Nélson d'Ávila, 1365, 2º Andar<br>
+            Jd. São Dimas, São José dos Campos, SP<br>
+            CEP 12245-030
+          </address>
+          <ul class="contato-card__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+551239399333">(12) 3939-9333</a></li>
+          </ul>
+        </div>
+
+        <div class="contato-card">
+          <span class="contato-card__tag">Filial Grande São Paulo</span>
+          <h3>São Paulo, SP</h3>
+          <address>
+            Rua Doze de Setembro, 1200<br>
+            Vila Guilherme, São Paulo, SP<br>
+            CEP 02052-001
+          </address>
+          <ul class="contato-card__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+551122071978">(11) 2207-1978</a></li>
+          </ul>
+        </div>
+
+        <div class="contato-card">
+          <span class="contato-card__tag">Atendimento</span>
+          <h3>Horário e canais</h3>
+          <address>
+            Segunda a sexta-feira, das 8h às 18h<br>
+            Exceto sábados, domingos e feriados
+          </address>
+          <ul class="contato-card__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg><a href="mailto:tadex@tadex.com.br">tadex@tadex.com.br</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Seg. a Sex., 8h às 18h</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="form-wa" id="formContato" novalidate>
+        <h2>Envie sua mensagem</h2>
+        <p>Preencha os campos abaixo e um de nossos analistas entrará em contato com você. Se preferir, fale diretamente conosco pelos telefones <a href="tel:+551122071978">(11) 2207-1978</a>, em São Paulo, ou <a href="tel:+551239399333">(12) 3939-9333</a>, em São José dos Campos.</p>
+
+        <div class="form-wa__grid">
+          <div class="form-wa__field">
+            <label for="cNome">Nome <span aria-hidden="true">*</span></label>
+            <input type="text" id="cNome" name="nome" required autocomplete="name" placeholder="Digite seu nome">
+          </div>
+          <div class="form-wa__field">
+            <label for="cEmail">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="cEmail" name="email" required autocomplete="email" placeholder="Digite seu e-mail">
+          </div>
+          <div class="form-wa__field">
+            <label for="cTelefone">Telefone <span aria-hidden="true">*</span></label>
+            <input type="tel" id="cTelefone" name="telefone" required autocomplete="tel" placeholder="(00) 00000-0000">
+          </div>
+          <div class="form-wa__field">
+            <label for="cUnidade">Unidade de preferência</label>
+            <select id="cUnidade" name="unidade">
+              <option value="551122071978">São Paulo, (11) 2207-1978</option>
+              <option value="551239399333">São José dos Campos, (12) 3939-9333</option>
+            </select>
+          </div>
+          <div class="form-wa__field form-wa__field--full">
+            <label for="cMensagem">Mensagem <span aria-hidden="true">*</span></label>
+            <textarea id="cMensagem" name="mensagem" required placeholder="Conte pra gente o que você precisa: origem, destino, tipo de carga e prazo desejado."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.4-.1-.6.1l-.9 1c-.1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5v-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3.4 3.4 0 0 0-1 2.5A5.9 5.9 0 0 0 7.6 12a13.4 13.4 0 0 0 5.2 4.6c1.9.7 2.3.6 2.7.6.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.2-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Enviar mensagem pelo WhatsApp
+        </button>
+        <p class="form-wa__hint">Ao enviar, sua mensagem é montada e aberta no WhatsApp da unidade escolhida, para o atendimento começar na hora. Seus dados são tratados conforme a nossa <a href="/politica-de-privacidade">Política de Privacidade</a>.</p>
+      </form>
+
+    </div>
+  </div>
+</main>
+</div>
+<script>
+(function(){
+  var f = document.getElementById('formContato');
+  if(!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = f.nome.value.trim(),
+        email = f.email.value.trim(),
+        tel = f.telefone.value.trim(),
+        msg = f.mensagem.value.trim(),
+        num = f.unidade.value;
+
+    if(!nome || !email || !tel || !msg){
+      f.reportValidity();
+      return;
+    }
+
+    var texto = 'Olá! Vim pelo site da TADEX.\n\n'
+      + 'Nome: ' + nome + '\n'
+      + 'E-mail: ' + email + '\n'
+      + 'Telefone: ' + tel + '\n\n'
+      + 'Mensagem:\n' + msg;
+
+    window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+  });
+})();
+</script>
+```

@@ -1,0 +1,260 @@
+# Termos de Uso
+
+| | |
+|---|---|
+| **Título da página** | Termos de Uso |
+| **Slug** | `/termos-de-uso` |
+| **Origem** | `wp-termos.html` |
+| **Tamanho** | 24 KB |
+
+## Como colar no WordPress
+
+1. **Páginas → Adicionar nova**
+2. Em **Título**, use o título indicado abaixo
+3. Adicione um bloco **HTML personalizado** (ou, no Elementor, o widget **HTML**)
+4. Copie **todo** o conteúdo do bloco de código desta página e cole dentro dele
+5. Em **Configurações → Link permanente**, ajuste o slug para o indicado
+6. Publique
+
+> Cole o bloco inteiro, do primeiro `<!--` até a última linha. O CSS vai junto,
+> escopado em `#tdx-legal`, então ele não vaza para o resto do site nem sofre
+> interferência do tema.
+
+---
+
+## Conteúdo para colar
+
+```html
+<!-- ============================================================
+     TADEX - TERMOS para WordPress (widget HTML do Elementor)
+     Bloco unico, CSS inline e escopado em #tdx-legal.
+     Slug sugerido da pagina: /termos-de-uso
+     Gerado por gerar-wp.py, nao edite este arquivo na mao.
+     Edite termos.html e rode: python3 gerar-wp.py
+     ============================================================ -->
+<style id="tdx-legal-css">
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-400.woff2) format('woff2')}
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-700.woff2) format('woff2')}
+#tdx-legal{--o:#f54900;--o6:#d93f00;--o1:#fdede4;--navy:#081027;--hero:#08111d;
+  --cream:#faf1ec;--wa:#37b34a;--wa6:#2e9a3f;--gray:#E4E7EC;--r:16px;--rlg:22px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased}
+/* Forca a fonte e a cor em TODO descendente: temas do WP costumam ter
+   regras proprias para h1/h2/h3/a que vencem a simples heranca do container. */
+#tdx-legal *,#tdx-legal *::before,#tdx-legal *::after{
+  box-sizing:border-box;font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+#tdx-legal h1,#tdx-legal h2,#tdx-legal h3,#tdx-legal h4{color:var(--navy);font-weight:700;text-transform:none}
+#tdx-legal .legal-hero h1,#tdx-legal .legal-hero p{color:#fff}
+#tdx-legal h1,#tdx-legal h2,#tdx-legal h3,#tdx-legal p{margin:0}
+#tdx-legal img{max-width:100%;display:block}
+#tdx-legal a{color:inherit}
+#tdx-legal .container{width:100%;max-width:1200px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+
+#tdx-legal .legal-hero{background:var(--hero);color:#fff;padding-block:clamp(40px,6vw,72px);
+  border-bottom:4px solid var(--o);position:relative;overflow:hidden}
+#tdx-legal .legal-hero::after{content:"";position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,73,0,.20),transparent 68%);pointer-events:none}
+#tdx-legal .legal-hero h1{font-size:clamp(1.85rem,4.4vw,3rem);line-height:1.14;
+  letter-spacing:-.02em;position:relative;z-index:1;color:#fff}
+#tdx-legal .legal-hero p{margin-top:12px;color:rgba(255,255,255,.72) !important;max-width:60ch;position:relative;z-index:1}
+
+#tdx-legal .legal{padding-block:clamp(40px,6vw,72px);background:#fff}
+#tdx-legal .legal .container{display:grid;grid-template-columns:230px minmax(0,1fr);
+  gap:clamp(32px,5vw,64px);align-items:start}
+#tdx-legal .legal--full .container{grid-template-columns:minmax(0,1fr)}
+#tdx-legal .legal--full .legal__body{max-width:none}
+#tdx-legal .legal__body{max-width:78ch;min-width:0}
+#tdx-legal .legal__meta{display:inline-block;background:var(--o1);color:var(--o6);
+  font-size:.83rem;font-weight:700;padding:.45em 1em;border-radius:999px;margin-bottom:28px}
+#tdx-legal .legal__body h2{font-size:clamp(1.12rem,2.1vw,1.4rem);line-height:1.3;
+  margin:38px 0 12px;scroll-margin-top:24px;letter-spacing:-.01em;color:var(--navy)}
+#tdx-legal .legal__body h2:first-of-type{margin-top:0}
+#tdx-legal .legal__body h3{font-size:1.02rem;margin:26px 0 10px;color:var(--navy);scroll-margin-top:24px}
+#tdx-legal .legal__body p{margin-bottom:14px;color:#3d4658}
+#tdx-legal .legal__body ul,#tdx-legal .legal__body ol{margin:0 0 18px;padding-left:22px;color:#3d4658}
+#tdx-legal .legal__body ul{list-style:disc}
+#tdx-legal .legal__body ol{list-style:decimal}
+#tdx-legal .legal__body li{margin-bottom:9px;padding-left:4px}
+#tdx-legal .legal__body li::marker{color:var(--o);font-weight:700}
+#tdx-legal .legal__body strong{color:var(--navy);font-weight:700}
+#tdx-legal .legal__body a:not(.btn){color:var(--o6);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1.5px}
+#tdx-legal .legal__body a:not(.btn):hover{color:var(--o)}
+
+#tdx-legal .legal-toc{position:sticky;top:24px}
+#tdx-legal .legal-toc h2{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#7a8496;margin-bottom:14px;font-weight:700}
+#tdx-legal .legal-toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--gray)}
+#tdx-legal .legal-toc a{display:block;padding:7px 0 7px 16px;margin-left:-2px;font-size:.88rem;
+  color:#5b6478;line-height:1.35;border-left:2px solid transparent;
+  text-decoration:none;transition:color .2s,border-color .2s}
+#tdx-legal .legal-toc a:hover{color:var(--o6);border-left-color:var(--o)}
+
+#tdx-legal .legal-note{background:var(--cream);border-left:4px solid var(--o);
+  border-radius:0 var(--r) var(--r) 0;padding:clamp(20px,3vw,28px);margin:28px 0}
+#tdx-legal .legal-note h3{margin-top:0}
+#tdx-legal .legal-note p:last-child{margin-bottom:0}
+#tdx-legal .legal-alert{background:#fff4ef;border:2px solid var(--o);border-radius:var(--r);
+  padding:clamp(18px,2.6vw,24px);margin-bottom:32px}
+#tdx-legal .legal-alert p{margin:0;color:var(--navy);font-weight:700}
+
+#tdx-legal .contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;margin-bottom:36px}
+#tdx-legal .contato-card{background:#fff;border:1px solid var(--gray);border-radius:var(--rlg);
+  padding:clamp(22px,3vw,30px);box-shadow:0 2px 8px rgba(8,16,39,.06);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+#tdx-legal .contato-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,16,39,.10)}
+#tdx-legal .contato-card__tag{display:inline-block;background:var(--o1);color:var(--o6);
+  font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:.4em .9em;border-radius:999px;margin-bottom:14px}
+#tdx-legal .contato-card h3{font-size:1.1rem;margin:0 0 10px}
+#tdx-legal .contato-card address{font-style:normal;color:#3d4658;line-height:1.65;margin-bottom:16px}
+#tdx-legal .contato-card__list{display:grid;gap:9px;list-style:none;margin:0;padding:0}
+#tdx-legal .contato-card__list li{display:flex;align-items:center;gap:.6em;color:#3d4658;font-size:.95rem}
+#tdx-legal .contato-card__list svg{width:17px;height:17px;flex:none;color:var(--o)}
+
+#tdx-legal .form-wa{background:var(--cream);border-radius:var(--rlg);padding:clamp(24px,3.4vw,36px)}
+#tdx-legal .form-wa h2{margin-top:0}
+#tdx-legal .form-wa__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;margin:16px 0}
+#tdx-legal .form-wa__field{display:flex;flex-direction:column;gap:7px}
+#tdx-legal .form-wa__field--full{grid-column:1/-1}
+#tdx-legal .form-wa label{font-size:.88rem;font-weight:700;color:var(--navy)}
+#tdx-legal .form-wa input,#tdx-legal .form-wa textarea,#tdx-legal .form-wa select{
+  font-family:inherit;font-size:.97rem;color:var(--navy);background:#fff;
+  border:1.5px solid var(--gray);border-radius:12px;padding:.78em 1em;width:100%;
+  transition:border-color .2s,box-shadow .2s}
+#tdx-legal .form-wa textarea{resize:vertical;min-height:118px}
+#tdx-legal .form-wa input:focus,#tdx-legal .form-wa textarea:focus,#tdx-legal .form-wa select:focus{
+  outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(245,73,0,.13)}
+#tdx-legal .form-wa__hint{font-size:.85rem;color:#6b7383;margin-top:14px}
+#tdx-legal .btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:.98rem;
+  padding:.85em 1.6em;border-radius:999px;border:2px solid transparent;cursor:pointer;
+  font-family:inherit;text-decoration:none;
+  transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+#tdx-legal .btn svg{width:1.15em;height:1.15em;flex:none}
+#tdx-legal .btn--wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(55,179,74,.26)}
+#tdx-legal .btn--wa:hover{background:var(--wa6);transform:translateY(-2px)}
+
+@media(max-width:900px){
+  #tdx-legal .legal .container{grid-template-columns:1fr}
+  #tdx-legal .legal-toc{position:static;order:-1;background:var(--cream);border-radius:var(--r);padding:20px 22px}
+  #tdx-legal .legal-toc ol{columns:2;column-gap:24px;border-left:0}
+  #tdx-legal .legal-toc a{padding-left:0;border-left:0}
+}
+@media(max-width:560px){#tdx-legal .legal-toc ol{columns:1}}
+@media(prefers-reduced-motion:reduce){
+  #tdx-legal .contato-card{transition:none}
+  #tdx-legal .contato-card:hover{transform:none}
+}
+</style>
+
+<div id="tdx-legal">
+<section class="legal-hero">
+  <div class="container">
+    <h1>Termos de Uso</h1>
+    <p>Condições que regulam o uso deste site disponibilizado pela TADEX Transportes.</p>
+  </div>
+</section>
+<main class="legal">
+  <div class="container">
+
+    <nav class="legal-toc" aria-label="Índice desta página">
+      <h2>Nesta página</h2>
+      <ol>
+        <li><a href="#acesso">Acesso ao site</a></li>
+        <li><a href="#restricoes">Restrições de uso</a></li>
+        <li><a href="#propriedade">Propriedade da Informação</a></li>
+        <li><a href="#hyperlinks">Hyperlinks</a></li>
+        <li><a href="#envios">Envios</a></li>
+        <li><a href="#aviso">Aviso Legal</a></li>
+        <li><a href="#limitacao">Limitação de responsabilidade</a></li>
+        <li><a href="#indenizacao">Indenização</a></li>
+        <li><a href="#marcas">Marcas Registradas</a></li>
+        <li><a href="#seguranca">Segurança</a></li>
+        <li><a href="#pirataria">Pirataria</a></li>
+        <li><a href="#dados">Dados da empresa</a></li>
+      </ol>
+    </nav>
+
+    <div class="legal__body">
+      <p class="legal__meta">Última atualização: 11 de maio de 2022</p>
+
+      <div class="legal-alert">
+        <p>IMPORTANTE: estes Termos de Serviço regulam o uso deste site disponibilizado pela empresa TADEX Transportes. Ao acessar este site, o usuário atesta seu conhecimento e concordância com estes Termos de Uso, ressalvada a possibilidade de alteração a qualquer tempo e sem aviso. A utilização deste site após tais alterações entrarão em vigor constitui seu conhecimento e aceitação das mudanças. Por favor, consulte os Termos de Uso antes de cada uso para averiguar possíveis modificações.</p>
+      </div>
+
+      <h2 id="acesso">Acesso ao site</h2>
+      <p>Para acessar a este site ou alguns dos recursos que ele oferece, pode ser requerido que você forneça alguns detalhes para inscrição ou outras informações. É condição de uso deste site que toda informação que você forneça seja correta, atualizada, completa e verdadeira. Se a TADEX Transportes entender que a informação fornecida não é correta, atualizada, completa ou verdadeira, possui o direito de recusar o seu acesso a este site ou qualquer um de seus serviços, e também de cancelar ou suspender seu acesso a qualquer momento sem notificação prévia.</p>
+
+      <h2 id="restricoes">Restrições de uso</h2>
+      <p>Você pode utilizar este site para propósitos expressamente permitidos por esta empresa e dentro dos critérios exigidos em lei. Você não pode utilizá-lo em qualquer outro objetivo, incluindo propósitos comerciais, sem o consentimento expresso e por escrito da TADEX Transportes.</p>
+      <p>Por exemplo, você não pode, sem autorização expressa prévia e por escrito de um representante da nossa empresa: associar a marca da nossa empresa a nenhuma outra; fazer um frame deste site em outro; ou criar um hyperlink para este site. Para efeitos destes Termos de Uso, "associar a marca da nossa empresa" significa expor nome, logotipo, marca comercial ou outro meio de atribuição ou identificação de forma que dê ao usuário a impressão de que a fonte tem o direito de expor, publicar ou distribuir este site ou o conteúdo disponibilizado por ele. Você concorda em cooperar com a empresa para cessar qualquer associação, frame ou hyperlink não autorizados.</p>
+
+      <h2 id="propriedade">Propriedade da Informação</h2>
+      <p>O material e conteúdo, referido neste documento como "conteúdo", acessíveis neste site e em qualquer outro website de propriedade, licenciado ou controlado pela TADEX Transportes, pertence e é de propriedade da nossa empresa, ou é conteúdo licenciado à nossa empresa, ou é conteúdo de domínio público. O usuário não pode modificar, copiar, distribuir, republicar, carregar, postar ou transmitir por qualquer meio sem o consentimento prévio e por escrito da nossa empresa, ou ao menos que esteja autorizado de forma escrita no nosso site, exceto quando você imprima uma cópia para seu uso estritamente pessoal. Ao fazê-lo, você não pode remover, alterar ou causar remoção ou alteração em qualquer copyright, marca comercial, nome comercial, marca de serviço ou qualquer outro aviso de propriedade no conteúdo. Modificações ou uso do conteúdo em qualquer outra forma que não as expressamente descritas nestes Termos de Uso viola os direitos de propriedade intelectual desta empresa. Nem outros nem a propriedade intelectual são transferidas para qualquer usuário ao acessar este site.</p>
+
+      <h2 id="hyperlinks">Hyperlinks</h2>
+      <p>Este site pode conter links para outros websites que não são mantidos ou revisados pela TADEX Transportes. Hyperlinks para tais sites são providos como um serviço para usuários e não são afiliados a este site ou à nossa empresa. Nossa empresa não revisa todos ou mesmo nenhum desses sites e não é responsável pelo conteúdo deles. O usuário assume o risco ao acessar esses hyperlinks e nossa empresa não faz nenhuma representação ou dá garantias sobre a plenitude ou precisão dos hyperlinks e os sites ao quais eles direcionam. Finalmente, a conclusão de qualquer hyperlink para um site de terceiro não necessariamente implica endosso da nossa empresa a este site.</p>
+
+      <h2 id="envios">Envios</h2>
+      <p>Por este termo o usuário garante à TADEX Transportes o direito e licença royalty-free, perpétua, irrevogável, global e não exclusivo de usar, reproduzir, modificar, adaptar, publicar, traduzir, criar trabalhos derivados, distribuir, representar e expor todo o conteúdo, observações, sugestões, ideias, desenhos ou outras informações comunicadas à nossa empresa por este site, sem qualquer denominação agora como "Envios", e incorporar qualquer Envio em outros trabalhos em qualquer formato, mídia ou tecnologia conhecida hoje ou ainda a ser desenvolvida. Nossa empresa não será obrigada a tratar nenhum Envio como confidencial e pode usar qualquer Envio em seu negócio, incluindo, e não se limitando, a produtos ou propaganda, sem ser imputada nenhuma responsabilidade por royalties ou qualquer outra consideração de qualquer tipo. Nossa empresa tratará qualquer informação pessoal que você submeter por esse site de acordo com a nossa <a href="/politica-de-privacidade">Política de Privacidade</a>.</p>
+
+      <h2 id="aviso">Aviso Legal</h2>
+      <p>O usuário reconhece e entende que nossa empresa não pode e não garante que arquivos disponíveis para download da internet estarão livres de vírus, worms, cavalos de Troia ou outro código que possa manifestar propriedades contaminadoras ou destrutivas. O usuário é responsável por implementar procedimentos e checkpoints suficientes para satisfazer seus requisitos de segurança e por manter meios externos a este site para reconstrução de qualquer dado perdido. Nossa empresa não assume nenhuma responsabilidade ou risco pelo uso da internet.</p>
+      <p>O conteúdo não é necessariamente completo ou atualizado e não deve ser usado para substituir qualquer relatório, declarações ou outros dados para Empresas, investidores, colaboradores e outros devem usar o Conteúdo do mesmo modo que qualquer outro pretenso educacional e não deve confiar somente no Conteúdo em detrimento de seu próprio julgamento profissional. A informação obtida ao usar este site não substitui o aconselhamento em bases sólidas por seus direitos.</p>
+      <p><strong>O uso deste site é total responsabilidade do usuário. O conteúdo é oferecido como está e sem garantias de qualquer tipo, expressas ou implícitas. Nossa empresa não garante que as funções contidas nos materiais estarão livres de interrupção, que os defeitos serão corrigidos, ou que este site ou o servidor que o torna disponível estão livres de vírus ou outros componentes destrutivos. Nossa empresa não garante ou faz qualquer representação relacionada ao uso ou resultados do uso do conteúdo em termos de precisão, confiabilidade ou de outro tipo.</strong></p>
+      <p>Toda informação neste site, seja de natureza histórica ou corrente, refere-se a uma data em que foi publicada no site e a empresa não se compromete com nenhuma obrigação de atualizar tal informação depois que é publicada, ou remover tal informação deste site caso ela não seja mais precisa ou completa.</p>
+
+      <h2 id="limitacao">Limitação de responsabilidade</h2>
+      <p><strong>A TADEX Transportes, suas filiais, afiliados, licenciantes, provedores de serviço, provedores de conteúdo, empregados, agentes, administradores e diretores não serão responsáveis por qualquer dano incidental, direto, indireto, punitivo, especial, consequente, exemplar ou de qualquer outro tipo, incluindo perda de receita ou renda, dor e sofrimento, estresse emocional ou similares, mesmo que a empresa tenha aconselhado sobre a possibilidade de tais danos.</strong></p>
+
+      <h2 id="indenizacao">Indenização</h2>
+      <p>Fica o usuário obrigado a indenizar e isentar a Empresa, suas filiais, afiliados, licenciantes, provedores de serviço, provedores de conteúdo, empregados, agentes, administradores e diretores, referidas agora como Partes Isentas, de qualquer violação destes Termos de Uso, incluindo o uso do Conteúdo diferente do expresso aqui. O usuário concorda que as Partes Isentas não têm responsabilidade ou conexão com qualquer violação ou uso não autorizado e também concorda em remediar toda e qualquer perda, dano, julgamento, prêmios, custos, despesas e honorários advocatícios das Partes Isentas ligadas a violação. Fica obrigado também a isentar as Partes Isentas de qualquer reivindicação de terceiros resultante do uso da informação contida neste site.</p>
+
+      <h2 id="marcas">Marcas Registradas</h2>
+      <p>Marcas e logos presentes neste site são propriedade da TADEX Transportes ou de parceiros que as disponibilizaram para esta Empresa. A Empresa e as partes que disponibilizaram marca e logo detêm todos os direitos sobre elas. O usuário fica expressamente proibido de publicar, enviar, apresentar ou fazer conexão a esse site qualquer material que:</p>
+      <ul>
+        <li>não tenha o direito de postar, incluindo material de propriedade de terceiros;</li>
+        <li>defenda atividade ilegal ou discuta a intenção de fazer algo ilegal;</li>
+        <li>seja vulgar, obsceno ou pornográfico;</li>
+        <li>não diga respeito diretamente a este site;</li>
+        <li>possa ameaçar ou insultar outros, difamar, caluniar, invadir privacidade, perseguir, ser obsceno, pornográfico, racista, homofóbico, assediar ou ofenda qualquer pessoa;</li>
+        <li>busque explorar ou prejudicar crianças expondo-as a conteúdo inapropriado;</li>
+        <li>infrinja qualquer propriedade intelectual ou outro direito de pessoa ou entidade, incluindo violações de direitos autorais, marca registrada ou direitos de publicidade;</li>
+        <li>viole qualquer lei ou pode ser considerado para violar a lei;</li>
+        <li>personifique ou deturpe sua conexão com qualquer entidade ou pessoa, ou ainda manipule títulos ou identificadores para encobrir a origem do conteúdo;</li>
+        <li>promova qualquer empreendimento comercial, tal como oferecer produtos ou serviços em promoção, ou que engaje de qualquer forma em uma atividade comercial, tal como realizar sorteios ou concursos, expor banners patrocinados sobre serviços exceto se expressamente autorizado neste site;</li>
+        <li>solicitar fundos, divulgações ou patrocinadores;</li>
+        <li>inclua programas com vírus, worms ou cavalos de Troia ou qualquer outro código, arquivo ou programa de computador destinado a interromper, destruir ou limitar a funcionalidade de qualquer software ou hardware de computador ou telecomunicações;</li>
+        <li>interrompa o fluxo normal de conversa, faça com que a tela "role" mais rápido que os outros usuários conseguem acompanhar, ou mesmo aja de modo a afetar a habilidade de outras pessoas de se engajar em atividades em tempo real neste site;</li>
+        <li>inclua arquivos em formato MP3;</li>
+        <li>promova notícias falsas (fake news);</li>
+        <li>desobedeça qualquer política ou regra estabelecida de tempos em tempos para o uso desse site ou qualquer rede conectada a ele, ou conteúdo hiperlinks para sites que contenham conteúdo que se enquadrem nas descrições acima.</li>
+      </ul>
+      <p>Mesmo sem a obrigação de fazê-lo, a TADEX Transportes reserva o direito de monitorar o uso deste site para determinar o cumprimento destes Termos de Uso, assim como o de remover ou vetar qualquer informação por qualquer razão. De qualquer forma o usuário permanece completamente responsável pelo conteúdo de seus envios. O usuário fica ciente e concorda que nem a Empresa ou qualquer terceiro provendo conteúdo para a Empresa assumirá qualquer responsabilidade por nenhuma ação ou inação da Empresa ou referido terceiro a respeito de qualquer envio.</p>
+
+      <h2 id="seguranca">Segurança</h2>
+      <p>Toda senha usada para este site é somente para uso individual. O usuário é integralmente responsável pela segurança de sua senha, se for o caso. A TADEX Transportes tem o direito de monitorar a segurança de sua senha a seu critério e poderá pedir que o usuário a mude. Se este obter qualquer senha para a Empresa considerar insegura, a Empresa tem o direito de requisitar que a senha seja modificada e/ou cancelar a sua conta. É possível usar qualquer serviço ou fornecerem conectada a este site para comprometer a segurança ou mexer com os recursos do sistema e/ou conta, ou uso da distribuição do fornecimento distribuídos para comprometer a segurança dos programas para descobrir senha, ferramentas de crack ou de sondagem de redes são estritamente proibidos. Se o usuário estiver envolvido em qualquer violação da segurança do sistema, a Empresa se reserva o direito de fornecer suas informações para os administradores de sistema de outros sites para ajudá-los a resolver incidentes de segurança. A Empresa se reserva o direito de investigar potenciais violações a estes Termos de Uso.</p>
+
+      <h2 id="pirataria">Pirataria</h2>
+      <p>Fica o usuário ciente de que a prática de violar direito de autor é crime tipificado no art. 184 do Código Penal e impõe pena de até 4 (quatro) anos de reclusão e multa. Fica esclarecido que, além de terceiros que violem seus Conteúdos com a intenção de obter lucro ou vantagem indevida, o comportamento de terceiros entre usuários também configura ato de violação de direito de autor e subsume-se na tipificação penal de Pirataria. Assim, a TADEX Transportes irá adotar as medidas que julgar necessárias, procedendo com denunciações aos órgãos policiais competentes para a persecução criminal, bem como, buscará a satisfação de seus direitos no âmbito da esfera cível. Fica, também, o usuário ciente de que a TADEX Transportes utiliza-se de ferramentas e serviços de empresas especializadas no combate à pirataria para rastrear e identificar atividades desta natureza. A TADEX Transportes se reserva ao direito de cooperar totalmente com as autoridades competentes ou pedidos da Justiça para que a Empresa revele a identidade de qualquer pessoa que publique e-mail, mensagem ou disponibilize qualquer material que possa violar estes Termos de Uso.</p>
+
+      <div class="legal-note">
+        <p>Ao aceitar este acordo, você (usuário) isenta a empresa de qualquer consequência resultante de qualquer ação da empresa durante ou como resultado de suas investigações e/ou ações tomadas resultantes de investigações, tanto da empresa quanto das autoridades de justiça competentes.</p>
+      </div>
+
+      <h2 id="dados">Dados da empresa</h2>
+      <p><strong>Razão Social:</strong> TADEX Transportes Ltda<br>
+      <strong>CNPJ:</strong> 60.652.120/0001-03<br>
+      <strong>Endereço:</strong> Av. Dr. Nélson d'Ávila, 1365, 2º Andar, Jd. São Dimas, CEP 12245-030, São José dos Campos, SP<br>
+      <strong>E-mail:</strong> <a href="mailto:tadex@tadex.com.br">tadex@tadex.com.br</a><br>
+      <strong>Telefones:</strong> <a href="tel:+551122071978">(11) 2207-1978</a> e <a href="tel:+551239399333">(12) 3939-9333</a></p>
+
+    </div>
+  </div>
+</main>
+</div>
+```
