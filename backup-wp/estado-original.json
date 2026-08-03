@@ -1,0 +1,37 @@
+{
+  "home": {
+    "id": 14,
+    "slug": "home-antiga",
+    "status": "publish",
+    "template": "elementor_header_footer",
+    "title": "Home antiga"
+  },
+  "fale-conosco": {
+    "id": 1285,
+    "slug": "fale-conosco",
+    "status": "publish",
+    "template": "elementor_header_footer",
+    "title": "Fale Conosco"
+  },
+  "politica-de-privacidade": {
+    "id": 1303,
+    "slug": "politica-de-privacidade",
+    "status": "publish",
+    "template": "elementor_header_footer",
+    "title": "Política de Privacidade"
+  },
+  "termos-de-uso": {
+    "id": 1305,
+    "slug": "termos-de-uso",
+    "status": "publish",
+    "template": "elementor_header_footer",
+    "title": "Termos de Uso"
+  },
+  "coleta": {
+    "id": 1797,
+    "slug": "coleta",
+    "status": "publish",
+    "template": "elementor_header_footer",
+    "title": "Termo de Prestação de Serviço de Coleta"
+  }
+}
