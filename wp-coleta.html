@@ -1,0 +1,216 @@
+<!-- ============================================================
+     TADEX - COLETA para WordPress (widget HTML do Elementor)
+     Bloco unico, CSS inline e escopado em #tdx-legal.
+     Slug sugerido da pagina: /condicoes-de-coleta
+     Gerado por gerar-wp.py, nao edite este arquivo na mao.
+     Edite coleta.html e rode: python3 gerar-wp.py
+     ============================================================ -->
+<style id="tdx-legal-css">
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-400.woff2) format('woff2')}
+@font-face{font-family:'TDX Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://tadex.vercel.app/assets/poppins-700.woff2) format('woff2')}
+#tdx-legal{--o:#f54900;--o6:#d93f00;--o1:#fdede4;--navy:#081027;--hero:#08111d;
+  --cream:#faf1ec;--wa:#37b34a;--wa6:#2e9a3f;--gray:#E4E7EC;--r:16px;--rlg:22px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased}
+/* Forca a fonte e a cor em TODO descendente: temas do WP costumam ter
+   regras proprias para h1/h2/h3/a que vencem a simples heranca do container. */
+#tdx-legal *,#tdx-legal *::before,#tdx-legal *::after{
+  box-sizing:border-box;font-family:'TDX Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+#tdx-legal h1,#tdx-legal h2,#tdx-legal h3,#tdx-legal h4{color:var(--navy);font-weight:700;text-transform:none}
+#tdx-legal .legal-hero h1,#tdx-legal .legal-hero p{color:#fff}
+#tdx-legal h1,#tdx-legal h2,#tdx-legal h3,#tdx-legal p{margin:0}
+#tdx-legal img{max-width:100%;display:block}
+#tdx-legal a{color:inherit}
+#tdx-legal .container{width:100%;max-width:1200px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+
+#tdx-legal .legal-hero{background:var(--hero);color:#fff;padding-block:clamp(40px,6vw,72px);
+  border-bottom:4px solid var(--o);position:relative;overflow:hidden}
+#tdx-legal .legal-hero::after{content:"";position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,73,0,.20),transparent 68%);pointer-events:none}
+#tdx-legal .legal-hero h1{font-size:clamp(1.85rem,4.4vw,3rem);line-height:1.14;
+  letter-spacing:-.02em;position:relative;z-index:1;color:#fff}
+#tdx-legal .legal-hero p{margin-top:12px;color:rgba(255,255,255,.72) !important;max-width:60ch;position:relative;z-index:1}
+
+#tdx-legal .legal{padding-block:clamp(40px,6vw,72px);background:#fff}
+#tdx-legal .legal .container{display:grid;grid-template-columns:230px minmax(0,1fr);
+  gap:clamp(32px,5vw,64px);align-items:start}
+#tdx-legal .legal--full .container{grid-template-columns:minmax(0,1fr)}
+#tdx-legal .legal--full .legal__body{max-width:none}
+#tdx-legal .legal__body{max-width:78ch;min-width:0}
+#tdx-legal .legal__meta{display:inline-block;background:var(--o1);color:var(--o6);
+  font-size:.83rem;font-weight:700;padding:.45em 1em;border-radius:999px;margin-bottom:28px}
+#tdx-legal .legal__body h2{font-size:clamp(1.12rem,2.1vw,1.4rem);line-height:1.3;
+  margin:38px 0 12px;scroll-margin-top:24px;letter-spacing:-.01em;color:var(--navy)}
+#tdx-legal .legal__body h2:first-of-type{margin-top:0}
+#tdx-legal .legal__body h3{font-size:1.02rem;margin:26px 0 10px;color:var(--navy);scroll-margin-top:24px}
+#tdx-legal .legal__body p{margin-bottom:14px;color:#3d4658}
+#tdx-legal .legal__body ul,#tdx-legal .legal__body ol{margin:0 0 18px;padding-left:22px;color:#3d4658}
+#tdx-legal .legal__body ul{list-style:disc}
+#tdx-legal .legal__body ol{list-style:decimal}
+#tdx-legal .legal__body li{margin-bottom:9px;padding-left:4px}
+#tdx-legal .legal__body li::marker{color:var(--o);font-weight:700}
+#tdx-legal .legal__body strong{color:var(--navy);font-weight:700}
+#tdx-legal .legal__body a:not(.btn){color:var(--o6);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1.5px}
+#tdx-legal .legal__body a:not(.btn):hover{color:var(--o)}
+
+#tdx-legal .legal-toc{position:sticky;top:24px}
+#tdx-legal .legal-toc h2{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#7a8496;margin-bottom:14px;font-weight:700}
+#tdx-legal .legal-toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--gray)}
+#tdx-legal .legal-toc a{display:block;padding:7px 0 7px 16px;margin-left:-2px;font-size:.88rem;
+  color:#5b6478;line-height:1.35;border-left:2px solid transparent;
+  text-decoration:none;transition:color .2s,border-color .2s}
+#tdx-legal .legal-toc a:hover{color:var(--o6);border-left-color:var(--o)}
+
+#tdx-legal .legal-note{background:var(--cream);border-left:4px solid var(--o);
+  border-radius:0 var(--r) var(--r) 0;padding:clamp(20px,3vw,28px);margin:28px 0}
+#tdx-legal .legal-note h3{margin-top:0}
+#tdx-legal .legal-note p:last-child{margin-bottom:0}
+#tdx-legal .legal-alert{background:#fff4ef;border:2px solid var(--o);border-radius:var(--r);
+  padding:clamp(18px,2.6vw,24px);margin-bottom:32px}
+#tdx-legal .legal-alert p{margin:0;color:var(--navy);font-weight:700}
+
+#tdx-legal .contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;margin-bottom:36px}
+#tdx-legal .contato-card{background:#fff;border:1px solid var(--gray);border-radius:var(--rlg);
+  padding:clamp(22px,3vw,30px);box-shadow:0 2px 8px rgba(8,16,39,.06);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+#tdx-legal .contato-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,16,39,.10)}
+#tdx-legal .contato-card__tag{display:inline-block;background:var(--o1);color:var(--o6);
+  font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:.4em .9em;border-radius:999px;margin-bottom:14px}
+#tdx-legal .contato-card h3{font-size:1.1rem;margin:0 0 10px}
+#tdx-legal .contato-card address{font-style:normal;color:#3d4658;line-height:1.65;margin-bottom:16px}
+#tdx-legal .contato-card__list{display:grid;gap:9px;list-style:none;margin:0;padding:0}
+#tdx-legal .contato-card__list li{display:flex;align-items:center;gap:.6em;color:#3d4658;font-size:.95rem}
+#tdx-legal .contato-card__list svg{width:17px;height:17px;flex:none;color:var(--o)}
+
+#tdx-legal .form-wa{background:var(--cream);border-radius:var(--rlg);padding:clamp(24px,3.4vw,36px)}
+#tdx-legal .form-wa h2{margin-top:0}
+#tdx-legal .form-wa__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;margin:16px 0}
+#tdx-legal .form-wa__field{display:flex;flex-direction:column;gap:7px}
+#tdx-legal .form-wa__field--full{grid-column:1/-1}
+#tdx-legal .form-wa label{font-size:.88rem;font-weight:700;color:var(--navy)}
+#tdx-legal .form-wa input,#tdx-legal .form-wa textarea,#tdx-legal .form-wa select{
+  font-family:inherit;font-size:.97rem;color:var(--navy);background:#fff;
+  border:1.5px solid var(--gray);border-radius:12px;padding:.78em 1em;width:100%;
+  transition:border-color .2s,box-shadow .2s}
+#tdx-legal .form-wa textarea{resize:vertical;min-height:118px}
+#tdx-legal .form-wa input:focus,#tdx-legal .form-wa textarea:focus,#tdx-legal .form-wa select:focus{
+  outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(245,73,0,.13)}
+#tdx-legal .form-wa__hint{font-size:.85rem;color:#6b7383;margin-top:14px}
+#tdx-legal .btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:.98rem;
+  padding:.85em 1.6em;border-radius:999px;border:2px solid transparent;cursor:pointer;
+  font-family:inherit;text-decoration:none;
+  transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+#tdx-legal .btn svg{width:1.15em;height:1.15em;flex:none}
+#tdx-legal .btn--wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(55,179,74,.26)}
+#tdx-legal .btn--wa:hover{background:var(--wa6);transform:translateY(-2px)}
+
+@media(max-width:900px){
+  #tdx-legal .legal .container{grid-template-columns:1fr}
+  #tdx-legal .legal-toc{position:static;order:-1;background:var(--cream);border-radius:var(--r);padding:20px 22px}
+  #tdx-legal .legal-toc ol{columns:2;column-gap:24px;border-left:0}
+  #tdx-legal .legal-toc a{padding-left:0;border-left:0}
+}
+@media(max-width:560px){#tdx-legal .legal-toc ol{columns:1}}
+@media(prefers-reduced-motion:reduce){
+  #tdx-legal .contato-card{transition:none}
+  #tdx-legal .contato-card:hover{transform:none}
+}
+</style>
+
+<div id="tdx-legal">
+<section class="legal-hero">
+  <div class="container">
+    <h1>Termo de Prestação de Serviço de Coleta</h1>
+    <p>Condições que o cliente declara conhecer ao solicitar uma coleta com a TADEX.</p>
+  </div>
+</section>
+<main class="legal">
+  <div class="container">
+
+    <nav class="legal-toc" aria-label="Índice desta página">
+      <h2>Nesta página</h2>
+      <ol>
+        <li><a href="#horarios">Horários de solicitação e coleta</a></li>
+        <li><a href="#documentos">Documentos e informações</a></li>
+        <li><a href="#espera">Espera e embalagem</a></li>
+        <li><a href="#insucesso">Insucesso de coleta</a></li>
+        <li><a href="#naotransporta">O que não transportamos</a></li>
+        <li><a href="#entrega">Tentativas de entrega</a></li>
+        <li><a href="#fragil">Material frágil</a></li>
+      </ol>
+    </nav>
+
+    <div class="legal__body">
+
+      <div class="legal-alert">
+        <p>É de extrema importância que, no campo de transportador da Nota Fiscal, constem o nosso CNPJ e razão social.</p>
+      </div>
+
+      <p>Através do presente termo, o(a) <strong>CLIENTE</strong> declara estar ciente que:</p>
+
+      <h2 id="horarios">Horários de solicitação e coleta</h2>
+      <ol>
+        <li>O horário para solicitações de coletas a serem realizadas no mesmo dia é até as 10h. Após esse horário, as coletas serão programadas para o dia seguinte.</li>
+        <li>A coleta será realizada em horário comercial, de segunda a sexta das 8h às 18h. Se houver qualquer observação de horário, esta deve ser informada no ato do agendamento; caso contrário, ocorrerá dentro do horário comercial padrão.</li>
+      </ol>
+
+      <h2 id="documentos">Documentos e informações</h2>
+      <ol start="3">
+        <li>A <strong>TADEX TRANSPORTES</strong> sempre solicita o nome e o setor do responsável pela entrega do material a ser coletado.</li>
+        <li>Para a coleta ser realizada, o material deve estar acompanhado da <strong>Nota Fiscal</strong> ou <strong>Declaração de Simples Remessa</strong> (<a href="https://files.tadex.com.br/modelo-declaracao-de-transporte.docx" target="_blank" rel="noopener">clique aqui para baixar o modelo de declaração</a>) constando todos os dados para transporte. É obrigatória Nota Fiscal para transportes interestaduais, não sendo aceita Declaração de Simples Remessa.</li>
+        <li>O(a) <strong>CLIENTE</strong> deverá informar corretamente a volumetria do produto a ser coletado e o tipo de mercadoria, para programação de um carro específico, caso necessário. Se as informações não forem repassadas ou forem repassadas incorretamente, a <strong>TADEX TRANSPORTES</strong> poderá não realizar o serviço contratado e haverá cobrança de insucesso de coleta.</li>
+      </ol>
+
+      <h2 id="espera">Espera e embalagem</h2>
+      <ol start="6">
+        <li>Quando o motorista responsável comparecer no local indicado para coleta, o produto já deve estar devidamente embalado e com NF emitida. O motorista é autorizado a aguardar no local da coleta por no <strong>máximo 20 (vinte) minutos</strong>. Decorridos os 20 minutos, o(a) <strong>CLIENTE</strong> declara estar ciente de que será adicionada ao valor do frete contratado uma taxa de espera, que corresponde a <strong>R$ 295,00 (duzentos e noventa e cinco reais)</strong>.</li>
+        <li>A <strong>TADEX TRANSPORTES</strong> não se responsabiliza por avaria de material embalado de forma inadequada.</li>
+        <li>A <strong>TADEX TRANSPORTES</strong> não fornece embalagens. A responsabilidade pela embalagem do produto é exclusiva do(a) <strong>CLIENTE</strong>.</li>
+      </ol>
+
+      <h2 id="insucesso">Insucesso de coleta</h2>
+      <ol start="9">
+        <li>Quando ocorrer insucesso na coleta do produto por culpa do(a) <strong>CLIENTE</strong>, este declara estar ciente de que haverá a cobrança de uma <strong>taxa de visita</strong>, que poderá ser variável de acordo com a cidade e tabela.</li>
+      </ol>
+
+      <h2 id="naotransporta">O que não transportamos</h2>
+      <p>A <strong>TADEX TRANSPORTES</strong> não realiza coleta dos seguintes produtos:</p>
+      <ul>
+        <li>Mudanças em geral;</li>
+        <li>Materiais perecíveis ou que necessitem de refrigeração;</li>
+        <li>Produtos químicos classificados;</li>
+        <li>Tintas;</li>
+        <li>Medicamentos humanos ou veterinários;</li>
+        <li>Produtos que necessitem de licenças especiais para transporte.</li>
+      </ul>
+
+      <h2 id="entrega">Tentativas de entrega</h2>
+      <ol start="11">
+        <li>Quando a <strong>TADEX TRANSPORTES</strong> não conseguir realizar a entrega da mercadoria no endereço indicado pelo(a) <strong>CLIENTE</strong> após a realização de 1 tentativa, o(a) <strong>CLIENTE</strong> declara estar ciente de que deverá realizar o pagamento do valor respectivo para a realização de novas tentativas de entrega, podendo indicar novo endereço, ou o pagamento do valor respectivo para devolução da mercadoria em seu endereço.</li>
+        <li>Quando a <strong>TADEX TRANSPORTES</strong> não conseguir realizar a entrega da mercadoria no endereço indicado pelo(a) <strong>CLIENTE</strong> após a realização de 1 tentativa, e o(a) <strong>CLIENTE</strong> se recusar a realizar o pagamento do valor para novas tentativas de entrega, a mercadoria ficará disponível para retirada pelo(a) <strong>CLIENTE</strong> no endereço da <strong>TADEX TRANSPORTES</strong>, podendo ocorrer uma taxa de devolução, devendo a retirada ocorrer no prazo de 30 (trinta) dias.</li>
+      </ol>
+
+      <h2 id="fragil">Regras para transporte de material frágil</h2>
+      <div class="legal-note">
+        <p>Material frágil que não seja informado não terá direito a ressarcimento de avaria.</p>
+        <p>É necessária <a href="https://www.tadex.com.br/isencaotadex/" target="_blank" rel="noopener">Carta de Isenção</a> para o envio.</p>
+        <p>A falta de correta identificação sobre material frágil por parte do embarcador e a consequente falta de Carta de Isenção não anula a isenção sobre ressarcimento.</p>
+        <p><strong>Serão considerados materiais frágeis:</strong> vidros em geral, porcelana, cerâmica, produtos em acrílico, latarias automotivas, sacarias, produtos líquidos armazenados em galões, bombonas e tambores, chapas e ferragens, materiais de precisão que possam avariar com a movimentação normal da carga (vibração no veículo), entre outros.</p>
+      </div>
+
+      <div class="legal-note">
+        <h3>Pronto para agendar sua coleta?</h3>
+        <p>Fale com a nossa equipe de segunda a sexta, das 8h às 18h, pelos telefones <a href="tel:+551239399333">(12) 3939-9333</a> e <a href="tel:+551122071978">(11) 2207-1978</a>, ou pela <a href="/fale-conosco">página de contato</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+</div>

@@ -335,3 +335,115 @@ a.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:
   .regioes__media{order:-1}
 }
 @media(max-width:540px){.regioes__actions .btn{flex:1;justify-content:center;white-space:normal;text-align:center}}
+
+/* ===================================================================
+   PÁGINAS INSTITUCIONAIS (privacidade, termos, coleta, contato)
+   =================================================================== */
+
+/* Topo simplificado */
+.legal-top{background:var(--hero);padding-block:18px}
+.legal-top .container{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.legal-top img{width:clamp(150px,18vw,196px);height:auto}
+.legal-back{display:inline-flex;align-items:center;gap:.5em;color:rgba(255,255,255,.78);
+  font-size:.92rem;font-weight:700;transition:color .25s var(--ease),transform .25s var(--ease)}
+.legal-back svg{width:1.05em;height:1.05em;flex:none}
+.legal-back:hover{color:#fff;transform:translateX(-3px)}
+
+/* Faixa de título */
+.legal-hero{background:var(--hero);color:#fff;padding-block:clamp(40px,6vw,72px);
+  border-bottom:4px solid var(--orange);position:relative;overflow:hidden}
+.legal-hero::after{content:"";position:absolute;right:-60px;top:50%;translate:0 -50%;
+  width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(245,73,0,.20),transparent 68%);pointer-events:none}
+.legal-hero h1{font-size:clamp(1.85rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;position:relative;z-index:1}
+.legal-hero p{margin-top:12px;color:rgba(255,255,255,.72);max-width:60ch;position:relative;z-index:1}
+
+/* Corpo */
+.legal{padding-block:clamp(40px,6vw,72px)}
+.legal .container{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}
+.legal__body{max-width:78ch;min-width:0}
+.legal__meta{display:inline-block;background:var(--orange-100);color:var(--orange-600);
+  font-size:.83rem;font-weight:700;padding:.45em 1em;border-radius:999px;margin-bottom:28px}
+.legal__body h2{font-size:clamp(1.12rem,2.1vw,1.4rem);line-height:1.3;margin:38px 0 12px;
+  scroll-margin-top:24px;letter-spacing:-.01em}
+.legal__body h2:first-of-type{margin-top:0}
+.legal__body h3{font-size:1.02rem;margin:26px 0 10px;color:var(--navy);scroll-margin-top:24px}
+.legal__body p{margin-bottom:14px;color:#3d4658}
+.legal__body ul,.legal__body ol{margin:0 0 18px;padding-left:22px;color:#3d4658}
+.legal__body ul{list-style:disc}
+.legal__body ol{list-style:decimal}
+.legal__body li{margin-bottom:9px;padding-left:4px}
+.legal__body li::marker{color:var(--orange);font-weight:700}
+.legal__body strong{color:var(--navy);font-weight:700}
+.legal__body a:not(.btn){color:var(--orange-600);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1.5px}
+.legal__body a:not(.btn):hover{color:var(--orange)}
+
+/* Índice lateral */
+.legal-toc{position:sticky;top:24px}
+.legal-toc h2{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#7a8496;margin-bottom:14px;font-weight:700}
+.legal-toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--gray-300)}
+.legal-toc a{display:block;padding:7px 0 7px 16px;margin-left:-2px;font-size:.88rem;
+  color:#5b6478;line-height:1.35;border-left:2px solid transparent;transition:color .2s,border-color .2s}
+.legal-toc a:hover{color:var(--orange-600);border-left-color:var(--orange)}
+
+/* Caixa de destaque */
+.legal-note{background:var(--cream);border-left:4px solid var(--orange);border-radius:0 var(--r) var(--r) 0;
+  padding:clamp(20px,3vw,28px);margin:28px 0}
+.legal-note h3{margin-top:0}
+.legal-note p:last-child,.legal-note ul:last-child{margin-bottom:0}
+
+/* Aviso forte */
+.legal-alert{background:#fff4ef;border:2px solid var(--orange);border-radius:var(--r);
+  padding:clamp(18px,2.6vw,24px);margin-bottom:32px}
+.legal-alert p{margin:0;color:var(--navy);font-weight:700}
+
+/* Contato: cartões */
+.contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-bottom:36px}
+.contato-card{background:#fff;border:1px solid var(--gray-300);border-radius:var(--r-lg);
+  padding:clamp(22px,3vw,30px);box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.contato-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.contato-card__tag{display:inline-block;background:var(--orange-100);color:var(--orange-600);
+  font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:.4em .9em;border-radius:999px;margin-bottom:14px}
+.contato-card h3{font-size:1.1rem;margin:0 0 10px}
+.contato-card address{font-style:normal;color:#3d4658;line-height:1.65;margin-bottom:16px}
+.contato-card__list{display:grid;gap:9px}
+.contato-card__list li{display:flex;align-items:center;gap:.6em;color:#3d4658;font-size:.95rem}
+.contato-card__list svg{width:17px;height:17px;flex:none;color:var(--orange)}
+.contato-card__list a:hover{color:var(--orange-600)}
+
+@media(max-width:900px){
+  .legal .container{grid-template-columns:1fr}
+  .legal-toc{position:static;order:-1;background:var(--cream);border-radius:var(--r);padding:20px 22px}
+  .legal-toc ol{columns:2;column-gap:24px;border-left:0}
+  .legal-toc a{padding-left:0;border-left:0}
+}
+@media(max-width:560px){.legal-toc ol{columns:1}}
+@media(prefers-reduced-motion:reduce){
+  .legal-back,.contato-card{transition:none}
+  .legal-back:hover,.contato-card:hover{transform:none}
+}
+
+/* Variante sem índice lateral (página de contato) */
+.legal--full .container{grid-template-columns:minmax(0,1fr)}
+.legal--full .legal__body{max-width:none}
+
+/* Formulário de contato */
+.form-wa{background:var(--cream);border-radius:var(--r-lg);padding:clamp(24px,3.4vw,36px);margin-top:8px}
+.form-wa h2{margin-top:0 !important}
+.form-wa__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-bottom:16px}
+.form-wa__field{display:flex;flex-direction:column;gap:7px}
+.form-wa__field--full{grid-column:1/-1}
+.form-wa label{font-size:.88rem;font-weight:700;color:var(--navy)}
+.form-wa input,.form-wa textarea,.form-wa select{
+  font-family:inherit;font-size:.97rem;color:var(--navy);background:#fff;
+  border:1.5px solid var(--gray-300);border-radius:12px;padding:.78em 1em;width:100%;
+  transition:border-color .2s,box-shadow .2s}
+.form-wa textarea{resize:vertical;min-height:118px}
+.form-wa input:focus,.form-wa textarea:focus,.form-wa select:focus{
+  outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(245,73,0,.13)}
+.form-wa input::placeholder,.form-wa textarea::placeholder{color:#9aa4b6}
+.form-wa__hint{font-size:.85rem;color:#6b7383;margin-top:14px}
+.btn--wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(55,179,74,.26)}
+.btn--wa:hover{background:var(--wa-600);transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,179,74,.34)}
